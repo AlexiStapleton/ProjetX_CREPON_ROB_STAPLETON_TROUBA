@@ -10,24 +10,31 @@ use App\Models\Citation;
 
 class CompteController extends Controller
 {
+    private function getFeedOfUser($idUser){
+
+            $posts = Post::where('idcompte', $idUser)
+                ->get();
+            $rts = RT::where('idrtcompte', $idUser)
+                ->get();
+            $citations = Citation::whereHas('postCitation', function($query) use ($idUser) {
+                $query->where('idcompte', $idUser);
+            })->get();
+            $feedUser = (object)array_merge_recursive( (array)$posts, (array)$rts, (array)$citations);
+            return $feedUser;
+        }
+    private feedSorter($feed){
+        return 0;
+    }
     public function compte($id){
         $compte = Compte::where('idcompte', $id)->first();
-        $posts = Post::where('idcompte', $id)
-            ->orderByRaw("TO_DATE(datepost, 'DD/MM/YYYY')")
-            ->get();
-        $rts = RT::where('idrtcompte', $id)
-            ->orderByRaw("TO_DATE(datert, 'DD/MM/YYYY')")
-            ->get();
-        $citations = Citation::whereHas('postCitation', function($query) use ($id) {
-            $query->where('idcompte', $id);
-        })->get();
 
 
-        dd($citations);
-        dd($rts);
-        dd($posts);
-        dd($compte);
+
+        $feed = $this->getFeedOfUser($id);
+
+        dd($feed);
         return view('compte')->with("compte", $compte);
-
     }
+
+
 }
