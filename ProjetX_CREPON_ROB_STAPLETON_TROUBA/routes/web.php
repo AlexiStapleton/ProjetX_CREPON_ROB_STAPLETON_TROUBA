@@ -11,6 +11,7 @@ Route::get('/', function () {
 });
 
 Route::get("/compte/{id}", [CompteController::class, 'compte'])->name('compte.show');
+Route::get("/feed/{id}", [CompteController::class, 'feed'])->name('feed.show');
 
 Route::get("/post/{id}", [PostController::class, 'post'])->name('post.show');
 
