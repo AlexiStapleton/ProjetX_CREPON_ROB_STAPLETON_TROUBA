@@ -54,7 +54,7 @@
                     <p>{{ $compte->pseudocompte }} a retweeté.</p>
                     <div class="postdiv">
                         <div>
-                            <p>POST DE : {{ $element->compte->pseudocompte }}</p>
+                            <p>POST DE : {{ $element->post->compte->pseudocompte }}</p>
                         </div>
                         <div>
                             <p>{{ $element->post->textpost }}</p>
