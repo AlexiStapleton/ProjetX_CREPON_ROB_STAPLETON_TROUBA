@@ -1,0 +1,402 @@
+:root {
+    --border-style: 0.8px solid rgb(87, 87, 87);
+}
+
+html{
+    height: 100%;
+    width: 100%;
+}
+
+body{
+    height: 100%;
+    width: 100%;
+    background-color: black;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    transition: all 0.5s ease;
+}
+
+#container{
+    height: 100%;
+    width: 65%;
+
+    display: flex;
+    gap: 3%;
+}
+
+/*--------------LEFT SIDE--------------*/
+#left_side{
+    flex: 1;
+    max-height: 100vh;
+    padding-bottom: 2%;
+
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    color: white;
+}
+
+#ul_cat{
+    width: 100%;
+    height: 90%;
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 1%;
+}
+
+li{
+    list-style: none;
+}
+
+.li_cat{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: .3vw;
+
+    height: 4%;
+    padding: 3%;
+    font-size: 125%;
+    font-weight: bold;
+    white-space: nowrap;
+    color: white;
+
+    border-radius: 50px;
+}
+
+svg{
+    height: 70%;
+    width: 30px;
+    fill: white;
+}
+
+#but_post{
+    width: 100%;
+    height: 5%;
+    margin-top: 5%;
+    background-color: white;
+    border-radius: 50px;
+    border: none;
+
+    font-weight: bold;
+    font-size: 130%;
+}
+
+#div_compte{
+    height: 5%;
+    padding: 1% 4% 1% 2%;
+    border-radius: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#info_compte{
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5%;
+}
+
+.img_profile{
+    height: 100%;
+    margin-left: 2%;
+    border-radius: 50px;
+}
+
+#div_nom{
+    height: 80%;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.p_info{
+    margin: 0;
+    padding: 0;
+}
+
+.p_pseudo{
+    font-size: 90%;
+    color: rgba(163, 163, 163, 0.688);
+}
+
+.hov_but:hover{
+    background-color: rgba(199, 199, 199, 0.166);
+    cursor: pointer;
+}
+
+/*--------------MAIN--------------*/
+#main_content {
+    flex: 3;
+    height: 100%;
+    max-height: 100vh; 
+    overflow-y: auto;
+    border-left: var(--border-style);
+    border-right: var(--border-style);
+}
+
+#main_content::-webkit-scrollbar {
+    display: none;
+}
+
+/* Head */
+#head_content{
+    border-bottom: var(--border-style);
+    padding-left: 20%;
+    padding-right: 20%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.div_select_scroll{
+    color: white;
+    font-weight: bold;
+}
+
+#div_visu_select{
+    width: 100%;
+    height: 5px;
+    border-radius: 50px;
+    background-color: rgb(29, 155, 240);
+}
+
+#unselect{
+    color: gray;
+}
+
+/* Post */
+#div_post{
+    border-bottom: var(--border-style);
+    padding: 2%;
+
+    display: flex;
+    gap: 2%;
+}
+
+.img_post{
+    height: 40px;
+    margin-top: 2%;
+}
+
+#div_input{
+    width: 100%;
+    height: 100%;
+}
+
+#input_post{
+    outline: none;
+    background-color: transparent;
+    width: 100%;
+    margin: 2% 0% 2% 0%;
+
+    font-size: 150%;
+    font-weight: 600;
+    color: white;
+}
+
+#input_post::placeholder{
+    color: rgba(128, 128, 128, 0.476);
+}
+
+#div_button{
+    border-top: var(--border-style);
+    padding-top: 3%;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+#ul_but_post{
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5%;
+}
+
+.svg_post{
+    height: 20px;
+    fill: rgb(29, 155, 240);
+    border-radius: 50px;
+}
+
+.svg_post:hover{
+    background-color: rgba(29, 156, 240, 0.3);
+}
+
+#but_post_main{
+    background-color: white;
+    border-radius: 50px;
+    border: none;
+    padding: 2% 3% 2% 3%;
+
+    font-weight: 600;
+    font-size: 100%;
+}
+
+.content_post{
+    min-height: 1vh;
+    width: 100%;
+    border-bottom: var(--border-style);
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    padding-top: 2%;
+    padding-bottom: 1%;
+}
+
+.div_image{
+    flex: .5;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.div_feed_post{
+    flex: 5;
+    width: 100%;
+    height: 100%;
+}
+
+.header_feed_post{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    gap: 2%;
+}
+
+#p_nom_post{
+    color: white;
+    font-weight: bold;
+}
+
+.p_text_post{
+    color: white;
+    white-space: wrap;
+    width: 100%;
+    margin-top: .5%;
+
+    font-weight: 300;
+}
+
+.button_post{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 5%;
+}
+
+.ul_feed_but_post{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 13%;
+    margin: 0;
+    padding: 0;
+}
+
+.li_but_post{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5%;
+    color: rgb(87, 87, 87);
+    padding: 3px;
+    border-radius: 50px;
+}
+
+.svg_but_post{
+    fill: rgb(87, 87, 87);
+    height: 20px;
+    width: 20px;
+}
+
+/* Pour le bleu */
+.li_but_post:hover {
+    background-color: rgba(29, 156, 240, 0.3);
+}
+
+.li_but_post:hover .svg_but_post {
+    fill: rgb(29, 155, 240);
+}
+
+.li_but_post:hover .p_info_but {
+    color: rgb(29, 155, 240);
+}
+
+/* Pour le vert */
+.li_but_post:hover.hov_green {
+    background-color: rgba(0, 186, 124, 0.3);
+}
+
+.li_but_post:hover.hov_green .svg_but_post {
+    fill: rgb(0, 186, 124);
+}
+
+.li_but_post:hover.hov_green .p_info_but {
+    color: rgb(0, 186, 124);
+}
+
+/* Pour le rouge */
+.li_but_post:hover.hov_red {
+    background-color: rgba(249, 24, 128, 0.3);
+}
+
+.li_but_post:hover.hov_red .svg_but_post {
+    fill: rgb(249, 24, 128);
+}
+
+.li_but_post:hover.hov_red .p_info_but {
+    color: rgb(249, 24, 128);
+}
+
+.p_info_but{
+    margin: 0;
+    padding: 0;
+    font-size: 90%;
+    font-weight: 300;
+}
+
+.but_feed_post{
+    background-color: transparent;
+    border: none;
+    padding: 0;
+}
+
+.hov_blue_svg{
+    padding: 3px;
+    border-radius: 50px;
+}
+
+.hov_blue_svg:hover{
+    fill: rgb(29, 155, 240);
+    background-color: rgba(29, 156, 240, 0.3);
+}
+
+/*--------------RIGHT SIDE--------------*/
+#right_side{
+    height: 100%;
+    flex: 1.5;
+}
