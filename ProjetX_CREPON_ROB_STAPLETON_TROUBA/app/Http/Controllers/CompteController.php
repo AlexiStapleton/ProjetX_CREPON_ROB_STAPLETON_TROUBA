@@ -17,7 +17,7 @@ class CompteController extends Controller
 
     public function getFeedOfUser($id){
         $posts = Post::where('idcompte', $id)
-            ->with(['compte.photo','photos'])
+            ->with(['compte.photo','photos', 'likes', 'rt'])
             ->get()
             ->map(function ($post) {
                 return $post;
@@ -25,7 +25,7 @@ class CompteController extends Controller
 
 
         $rts = RT::where('idrtcompte', $id)
-            ->with(['compte', 'post.photos'])
+            ->with(['compte', 'post.photos', 'post.likes', 'post.rt'])
             ->get()
             ->map(function ($rt) {
                 return $rt;
@@ -33,8 +33,8 @@ class CompteController extends Controller
         $citations = Citation::whereHas('postCitation', function ($query) use ($id) {
             $query->where('idcompte', $id);
         })
-            ->with(['post.compte.photo', 'post.photos'])
-            ->with(['postOriginal.compte.photo', 'postOriginal.photos'])
+            ->with(['post.compte.photo', 'post.photos', 'post.likes', 'post.rt'])
+            ->with(['postOriginal.compte.photo', 'postOriginal.photos', 'postOriginal.likes'])
             ->get()
             ->map(function ($citation) {
                 return $citation;

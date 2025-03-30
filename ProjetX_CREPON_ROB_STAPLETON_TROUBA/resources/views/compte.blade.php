@@ -23,12 +23,15 @@
                         @foreach($element->photos as $photos)
                             <p>{{ $photos->urlphoto }}</p>
                         @endforeach
+                        <p>{{ count($element->likes) }} likes !</p>
+                        <p>{{ count($element->rt) }} RT !</p>
                     </div>
                 </div>
             @endif
             @if($element instanceof App\Models\Citation)
                 <div class="citationdiv">
                     <p>CITATION DE : {{ $element->post->compte->pseudocompte }} </p>
+                    <p>{{ $element->post->textpost }}</p>
                     <div class="citationdivoriginal">
                         <div>
                             <p>POST DE : {{ $element->postOriginal->compte->pseudocompte }}</p>
@@ -39,7 +42,11 @@
                                 <p>{{ $photos->urlphoto }}</p>
                             @endforeach
                         </div>
+                        <p>{{ count($element->postOriginal->likes) }} likes !</p>
+                        <p>{{ count($element->postOriginal->rt) }} RT !</p>
                     </div>
+                    <p>{{ count( $element->post->likes) }} likes !</p>
+                    <p>{{ count( $element->post->rt) }} RT !</p>
                 </div>
             @endif
             @if($element instanceof App\Models\RT)
@@ -54,6 +61,8 @@
                             @foreach($element->post->photos as $photos)
                                 <p>{{ $photos->urlphoto }}</p>
                             @endforeach
+                            <p>{{ count($element->post->likes) }} likes !</p>
+                            <p>{{ count($element->post->rt) }} rt !</p>
                         </div>
                     </div>
                 </div>

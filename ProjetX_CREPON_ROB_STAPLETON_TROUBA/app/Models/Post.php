@@ -25,5 +25,12 @@ class Post extends Model
             'idphoto'
         );
     }
+    public function likes(){
+        return $this->hasMany(Aime::class, 'idaimepost', 'idpost');
+    }
+    public function rt(){
+        return $this->hasMany(RT::class, 'idrtpost', 'idpost');
+    }
+
 
 }
