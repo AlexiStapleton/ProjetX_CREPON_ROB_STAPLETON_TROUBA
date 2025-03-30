@@ -5,9 +5,8 @@
       <sourceFolder url="file://$MODULE_DIR$/ProjetX_CREPON_ROB_STAPLETON_TROUBA/app" isTestSource="false" packagePrefix="App\" />
       <sourceFolder url="file://$MODULE_DIR$/ProjetX_CREPON_ROB_STAPLETON_TROUBA/database/factories" isTestSource="false" packagePrefix="Database\Factories\" />
       <sourceFolder url="file://$MODULE_DIR$/ProjetX_CREPON_ROB_STAPLETON_TROUBA/database/seeders" isTestSource="false" packagePrefix="Database\Seeders\" />
+      <sourceFolder url="file://$MODULE_DIR$/ProjetX_CREPON_ROB_STAPLETON_TROUBA/tests" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/ProjetX_CREPON_ROB_STAPLETON_TROUBA/tests" isTestSource="true" packagePrefix="Tests\" />
-      <sourceFolder url="file://$MODULE_DIR$/ProjetX_CREPON_ROB_STAPLETON_TROUBA/tests/Feature" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/ProjetX_CREPON_ROB_STAPLETON_TROUBA/tests/Unit" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/.tmp" />
       <excludeFolder url="file://$MODULE_DIR$/temp" />
       <excludeFolder url="file://$MODULE_DIR$/tmp" />

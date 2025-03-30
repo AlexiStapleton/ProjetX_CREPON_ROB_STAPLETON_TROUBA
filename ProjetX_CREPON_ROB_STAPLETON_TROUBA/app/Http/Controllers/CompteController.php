@@ -17,6 +17,7 @@ class CompteController extends Controller
 
     public function getFeedOfUser($id){
         $posts = Post::where('idcompte', $id)
+            ->with(['compte.photo','photos'])
             ->get()
             ->map(function ($post) {
                 return $post;
@@ -24,13 +25,17 @@ class CompteController extends Controller
 
 
         $rts = RT::where('idrtcompte', $id)
+            ->with(['compte', 'post.photos'])
             ->get()
             ->map(function ($rt) {
                 return $rt;
             });
         $citations = Citation::whereHas('postCitation', function ($query) use ($id) {
             $query->where('idcompte', $id);
-        })->get()
+        })
+            ->with(['post.compte.photo', 'post.photos'])
+            ->with(['postOriginal.compte.photo', 'postOriginal.photos'])
+            ->get()
             ->map(function ($citation) {
                 return $citation;
             });
@@ -75,12 +80,12 @@ class CompteController extends Controller
 
         $feed = $this->getFeedOfUser($id);
 
-        dd($feed);
+
         return view('compte')->with('compte', $compte)->with('feed', $feed)->with('likes', $likes)->with('photoProfil', $photoProfil);
     }
     public function feed($id){
-        $compte = Compte::where('idcompte', $id)->first();
-        $photoProfil = Photo::where('idphoto', $compte->idppcompte)->first();
+        $compte = Compte::where('idcompte', $id)->with('photo')->first();
+
         $idfollowedAccounts = Follow::where('idcomptequifollow', $compte->idcompte)->get();
         $followedAccounts = collect();
         foreach ($idfollowedAccounts as $followedAccount) {
@@ -97,6 +102,7 @@ class CompteController extends Controller
         $sortedfeed = $this->sortFeed($feed);
 
 
-        return view('feed')->with('compte', $compte)->with('photoProfil', $photoProfil)->with('feed', $sortedfeed);
+
+        return view('feed')->with('compte', $compte)->with('feed', $sortedfeed);
     }
 }
