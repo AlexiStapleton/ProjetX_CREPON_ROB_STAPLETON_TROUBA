@@ -16,7 +16,7 @@
             @if($element instanceof App\Models\Post)
                 <div class="postdiv">
                     <div>
-                        <p>{{ $element->compte->pseudocompte }}</p>
+                        <p>POST DE : {{ $element->compte->pseudocompte }}</p>
                     </div>
                     <div>
                         <p>{{ $element->textpost }}</p>
@@ -28,12 +28,34 @@
             @endif
             @if($element instanceof App\Models\Citation)
                 <div class="citationdiv">
-                    <p>Citation !!</p>
+                    <p>CITATION DE : {{ $element->post->compte->pseudocompte }} </p>
+                    <div class="citationdivoriginal">
+                        <div>
+                            <p>POST DE : {{ $element->postOriginal->compte->pseudocompte }}</p>
+                        </div>
+                        <div>
+                            <p>{{ $element->postOriginal->textpost }}</p>
+                            @foreach($element->postOriginal->photos as $photos)
+                                <p>{{ $photos->urlphoto }}</p>
+                            @endforeach
+                        </div>
+                    </div>
                 </div>
             @endif
             @if($element instanceof App\Models\RT)
                 <div class="rtdiv">
-                    <p>RT !</p>
+                    <p>{{ $compte->pseudocompte }} a retweeté.</p>
+                    <div class="postdiv">
+                        <div>
+                            <p>POST DE : {{ $element->compte->pseudocompte }}</p>
+                        </div>
+                        <div>
+                            <p>{{ $element->post->textpost }}</p>
+                            @foreach($element->post->photos as $photos)
+                                <p>{{ $photos->urlphoto }}</p>
+                            @endforeach
+                        </div>
+                    </div>
                 </div>
             @endif
 

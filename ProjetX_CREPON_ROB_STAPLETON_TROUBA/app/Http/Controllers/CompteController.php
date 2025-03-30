@@ -80,7 +80,6 @@ class CompteController extends Controller
 
         $feed = $this->getFeedOfUser($id);
 
-
         return view('compte')->with('compte', $compte)->with('feed', $feed)->with('likes', $likes)->with('photoProfil', $photoProfil);
     }
     public function feed($id){
