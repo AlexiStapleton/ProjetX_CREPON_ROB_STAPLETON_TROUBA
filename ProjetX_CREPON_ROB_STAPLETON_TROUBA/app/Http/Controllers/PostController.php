@@ -35,6 +35,7 @@ class PostController extends Controller
             $post = Post::create([
                 'idcompte' => auth()->id(),
                 'textpost' => $request->textpost,
+                'datepost' => Carbon::now(),
             ]);
             if($request->hasFile('image')){
                 $imagePath = $request->file('image')->store('photos', 'public');
