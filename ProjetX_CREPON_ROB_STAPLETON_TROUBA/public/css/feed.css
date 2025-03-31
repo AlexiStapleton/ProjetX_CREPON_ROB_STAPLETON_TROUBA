@@ -20,6 +20,10 @@ body{
     transition: all 0.5s ease;
 }
 
+a{
+    all: unset;
+}
+
 .container{
     height: 100%;
     width: 65%;
@@ -289,9 +293,13 @@ svg{
     gap: 2%;
 }
 
-#p_nom_post{
+.p_nom_post{
     color: white;
     font-weight: bold;
+}
+
+.p_nom_post:hover{
+    text-decoration: underline;
 }
 
 #text_marge{

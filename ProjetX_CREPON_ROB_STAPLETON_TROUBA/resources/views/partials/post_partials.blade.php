@@ -7,7 +7,7 @@
             </div>
             <div class="div_feed_post">
                 <div class="header_feed_post">
-                    <p class="p_info" id="p_nom_post">{{ $element->compte->pseudocompte }}</p>
+                    <p class="p_info p_nom_post"><a href="{{route('compte.show', ['id'=>$element->idcompte])}}">{{ $element->compte->pseudocompte }}</a></p>
                     <p class="p_info p_pseudo">@PtitLoupBlanc • Mar 29</p>
                 </div>
                 <div id="text_marge">
