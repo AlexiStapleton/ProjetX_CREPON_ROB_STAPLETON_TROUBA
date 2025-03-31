@@ -25,6 +25,9 @@
                         @endforeach
                         <p>{{ count($element->likes) }} likes !</p>
                         <p>{{ count($element->rt) }} RT !</p>
+                        <p>{{ count($element->commentaires) }} commentaires !</p>
+                        <p>{{ $element->datepost }}</p>
+
                     </div>
                 </div>
             @endif
@@ -44,17 +47,21 @@
                         </div>
                         <p>{{ count($element->postOriginal->likes) }} likes !</p>
                         <p>{{ count($element->postOriginal->rt) }} RT !</p>
+                        <p>{{ $element->postOriginal->datepost }}</p>
                     </div>
                     <p>{{ count( $element->post->likes) }} likes !</p>
                     <p>{{ count( $element->post->rt) }} RT !</p>
+                    <p>{{ $element->post->datepost }}</p>
                 </div>
             @endif
             @if($element instanceof App\Models\RT)
                 <div class="rtdiv">
                     <p>{{ $compte->pseudocompte }} a retweeté.</p>
+                    <p>rt le {{ $element->datert }}</p>
                     <div class="postdiv">
                         <div>
                             <p>POST DE : {{ $element->post->compte->pseudocompte }}</p>
+
                         </div>
                         <div>
                             <p>{{ $element->post->textpost }}</p>
@@ -63,6 +70,7 @@
                             @endforeach
                             <p>{{ count($element->post->likes) }} likes !</p>
                             <p>{{ count($element->post->rt) }} rt !</p>
+                            <p>{{ $element->post->datepost }}</p>
                         </div>
                     </div>
                 </div>

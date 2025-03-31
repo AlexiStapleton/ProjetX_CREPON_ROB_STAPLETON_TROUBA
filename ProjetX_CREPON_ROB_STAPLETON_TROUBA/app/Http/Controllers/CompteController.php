@@ -17,15 +17,14 @@ class CompteController extends Controller
 
     public function getFeedOfUser($id){
         $posts = Post::where('idcompte', $id)
-            ->with(['compte.photo','photos', 'likes', 'rt'])
+            ->with(['compte.photo','photos', 'likes', 'rt', 'commentaires'])
             ->get()
             ->map(function ($post) {
                 return $post;
             });
 
-
         $rts = RT::where('idrtcompte', $id)
-            ->with(['compte', 'post.photos', 'post.likes', 'post.rt'])
+            ->with(['compte', 'post.photos', 'post.likes', 'post.rt', 'post.commentaires'])
             ->get()
             ->map(function ($rt) {
                 return $rt;
@@ -33,8 +32,8 @@ class CompteController extends Controller
         $citations = Citation::whereHas('postCitation', function ($query) use ($id) {
             $query->where('idcompte', $id);
         })
-            ->with(['post.compte.photo', 'post.photos', 'post.likes', 'post.rt'])
-            ->with(['postOriginal.compte.photo', 'postOriginal.photos', 'postOriginal.likes'])
+            ->with(['post.compte.photo', 'post.photos', 'post.likes', 'post.rt', 'post.commentaires'])
+            ->with(['postOriginal.compte.photo', 'postOriginal.photos', 'postOriginal.likes','postOriginal.commentaires'])
             ->get()
             ->map(function ($citation) {
                 return $citation;
@@ -75,7 +74,7 @@ class CompteController extends Controller
     public function compte($id)
     {
         $likes = $this->getLikesOfUser($id);
-        $compte = Compte::where('idcompte', $id)->first();
+        $compte = Compte::where('idcompte', $id)->with('photo')->first();
         $photoProfil = Photo::where('idphoto', $compte->idppcompte)->first();
 
         $feed = $this->getFeedOfUser($id);
@@ -84,9 +83,10 @@ class CompteController extends Controller
         return view('compte')->with('compte', $compte)->with('feed', $feed)->with('likes', $likes)->with('photoProfil', $photoProfil);
     }
     public function feed($id){
-        $compte = Compte::where('idcompte', $id)->with('photo')->first();
+        $compteUser = Compte::where('idcompte', $id)->with('photo')->first();
 
-        $idfollowedAccounts = Follow::where('idcomptequifollow', $compte->idcompte)->get();
+
+        $idfollowedAccounts = Follow::where('idcomptequifollow', $compteUser->idcompte)->get();
         $followedAccounts = collect();
         foreach ($idfollowedAccounts as $followedAccount) {
             $compte = Compte::where('idcompte', $followedAccount->idcomptefollow)->first();
@@ -103,6 +103,6 @@ class CompteController extends Controller
 
 
 
-        return view('feed')->with('compte', $compte)->with('feed', $sortedfeed);
+        return view('feed')->with('compte', $compteUser)->with('feed', $sortedfeed);
     }
 }

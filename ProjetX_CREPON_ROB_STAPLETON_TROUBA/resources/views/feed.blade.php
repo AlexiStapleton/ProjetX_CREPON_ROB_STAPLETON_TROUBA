@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Feed de {{ $compte->pseudocompte }}</title>
+    <title>Feed de {{ $compte->pseudocompte}}</title>
     <link rel="stylesheet" href="{{ asset('css/feed.css') }}">
 </head>
 <body>
@@ -178,7 +178,7 @@
 @endforeach
 </div>
     <div id="right_side">
-            
+
     </div>
 </div>
 </body>

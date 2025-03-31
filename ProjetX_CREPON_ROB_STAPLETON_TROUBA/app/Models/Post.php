@@ -31,6 +31,8 @@ class Post extends Model
     public function rt(){
         return $this->hasMany(RT::class, 'idrtpost', 'idpost');
     }
-
+    public function commentaires(){
+        return $this->hasMany(Commentaire::class, 'idpostoriginalcommentaire', 'idpost');
+    }
 
 }
