@@ -38,4 +38,8 @@ class Compte extends Model
     public function posts(){
         return $this->hasMany(Post::class, 'idcompte', 'idcompte');
     }
+
+    public function getRt(){
+        return $this->hasMany(Rt::class, 'idrtcompte', 'idcompte');
+    }
 }

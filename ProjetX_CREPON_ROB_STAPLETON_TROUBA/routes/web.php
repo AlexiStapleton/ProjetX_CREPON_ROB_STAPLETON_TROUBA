@@ -4,6 +4,7 @@
 
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CompteController;
+use App\Http\Controllers\RTController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -18,3 +19,4 @@ Route::get("/posts", [PostController::class, 'posts'])->name('post.showall');
 
 Route::post("/posts", [PostController::class, 'store'])->name('posts.store');
 
+Route::post("/rt/toggle", [RTController::class, 'toggleRt'])->name('rt.toggle');
