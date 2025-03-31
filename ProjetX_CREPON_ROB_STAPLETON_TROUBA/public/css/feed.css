@@ -20,7 +20,7 @@ body{
     transition: all 0.5s ease;
 }
 
-#container{
+.container{
     height: 100%;
     width: 65%;
 
@@ -235,7 +235,9 @@ svg{
 
 .svg_post{
     height: 20px;
+    width: 20px;
     fill: rgb(29, 155, 240);
+    padding: 3px;
     border-radius: 50px;
 }
 
@@ -309,12 +311,18 @@ svg{
 }
 
 .ul_feed_but_post{
+    width: 80%;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: 13%;
+    gap: 15%;
     margin: 0;
     padding: 0;
+}
+.form_but_post{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .li_but_post{
