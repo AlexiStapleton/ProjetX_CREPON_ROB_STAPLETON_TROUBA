@@ -18,8 +18,7 @@
 
         <form action="{{ url('/post')}}" id="div_input" method="POST">
             {{ csrf_field() }}
-            <textarea name="textpost" rows="3" required>What's happening?</textarea>
-            <input type="file" name="image" accept="image/*">
+            <textarea id="input_post" name="textpost" rows="3" required>What's happening?</textarea>
             <div id="div_button">
                 <ul id="ul_but_post">
                     <li>
@@ -42,4 +41,5 @@
     </div>
     @include('partials.post_partials', ['feed' => $feed])
 </div>
+<script src="{{asset('js/feed.js')}}"></script>
 @endsection
