@@ -10,6 +10,9 @@ use App\Models\Citation;
 use App\Models\Photo;
 use App\Models\Aime;
 use App\Models\Commentaire;
+use App\Models\Vpost;
+use App\Models\Vcitation;
+use App\Models\Vrt;
 use Carbon\Carbon;
 use App\Models\Follow;
 
@@ -18,38 +21,24 @@ class CompteController extends Controller
 
     public function getFeedOfUser($id){
 
-        $idPostsAvecCommentaires = Commentaire::pluck('idpostcommentaire')->toArray();
-
-        $posts = Post::where('idcompte', $id)
-            ->whereNotIn('idpost', $idPostsAvecCommentaires)
-            ->with(['compte.photo', 'photos', 'likes', 'rt', 'commentaires'])
+        $posts = Vpost::where('idcompte', $id)
+            ->whereNotIn('idpost', Commentaire::pluck('idpostcommentaire')->toArray())
             ->get();
 
-        $rts = RT::where('idrtcompte', $id)
-            ->with(['compte', 'post.photos', 'post.likes', 'post.rt', 'post.commentaires'])
-            ->get()
-            ->map(function ($rt) {
-                return $rt;
-            });
-        $citations = Citation::whereHas('postCitation', function ($query) use ($id) {
-            $query->where('idcompte', $id);
-        })
-            ->with(['post.compte.photo', 'post.photos', 'post.likes', 'post.rt', 'post.commentaires'])
-            ->with(['postOriginal.compte.photo', 'postOriginal.photos', 'postOriginal.likes','postOriginal.commentaires'])
-            ->get()
-            ->map(function ($citation) {
-                return $citation;
-            });
+        $citations = Vcitation::where('idcompteposter', $id)->get();
+        $rts = Vrt::where('idrtcompte', $id)->get();
 
         $feed = collect()
             ->merge($posts)
-            ->merge($rts)
-            ->merge($citations);
+            ->merge($citations)
+            ->merge($rts);
 
         $sortedFeed = $this->sortFeed($feed);
 
+
         return $sortedFeed;
     }
+
     public function getLikesOfUser($id){
         $lesLikes = Aime::where('idaimecompte', $id)->get();
         $likedPosts = collect();
@@ -61,17 +50,23 @@ class CompteController extends Controller
     }
     public function sortFeed($feed){
         $sortedFeed = $feed->sortByDesc(function ($item) {
+            if (isset($item->datert)) {
+                return Carbon::createFromFormat('d-m-Y', trim($item->datert));
+            }
 
-                if (isset($item->datepost)) {
-                    return Carbon::createFromFormat('d/m/Y', trim($item->datepost));
-                } elseif (isset($item->datert)) {
-                    return Carbon::createFromFormat('d-m-Y', $item->datert);
-                }
-                return Carbon::now();
-            })
+            if (isset($item->datepost)) {
+                return Carbon::createFromFormat('d/m/Y', trim($item->datepost));
+            }
+
+            return Carbon::now();
+        })
             ->values();
+
         return $sortedFeed;
     }
+
+
+
 
     public function compte($id)
     {
