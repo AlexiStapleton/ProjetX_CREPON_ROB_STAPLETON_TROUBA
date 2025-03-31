@@ -27,6 +27,7 @@ class Post extends Model
             'idphoto'
         );
     }
+
     public function likes(){
         return $this->hasMany(Aime::class, 'idaimepost', 'idpost');
     }

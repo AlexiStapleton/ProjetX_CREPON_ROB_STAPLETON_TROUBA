@@ -16,10 +16,11 @@
         <img class="img_profile img_post" src="https://pbs.twimg.com/profile_images/1695959673646551040/OJ9rAupv_x96.jpg" alt="">
 
 
-        <form action="{{ url('/post')}}" id="div_input" method="POST">
-            {{ csrf_field() }}
-            <textarea name="textpost" rows="3" required>What's happening?</textarea>
-            <input type="file" name="image" accept="image/*">
+        <form action="{{ route('posts.store')}}" id="div_input" method="POST">
+            @csrf
+            <textarea name="textpost" maxlength="280" placeholder="What's happening?" required></textarea>
+            <input type="file" name="images[]" accept="image/*">
+            <input type="hidden" name="user_id" value="{{ $compte->idcompte }}">
             <div id="div_button">
                 <ul id="ul_but_post">
                     <li>

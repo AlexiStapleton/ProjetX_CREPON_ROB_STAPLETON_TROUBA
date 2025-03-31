@@ -13,6 +13,14 @@ class Compte extends Model
     protected $primaryKey = 'idcompte';
     public $timestamps = false;
 
+    protected $fillable = [
+        'logincompte',
+        'pseudocompte',
+        'mdpcompte',
+        'descriptioncompte',
+        'idbanierecompte',
+        'idppcompte'
+    ];
     public function photo(){
         return $this->belongsTo(Photo::class, 'idppcompte');
     }
@@ -25,5 +33,9 @@ class Compte extends Model
     }
     public function followedaccounts(){
         return $this->hasMany(Follow::class, 'idcomptequifollow', 'idcompte');
+    }
+
+    public function posts(){
+        return $this->hasMany(Post::class, 'idcompte', 'idcompte');
     }
 }
