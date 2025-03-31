@@ -10,6 +10,8 @@ class Photo extends Model
     protected $primaryKey = 'idphoto';
     protected $timestamp = false;
 
+    protected $fillable = ['urlphoto'];
+
     public function posts(): BelongsToMany
     {
         return $this->belongsToMany(

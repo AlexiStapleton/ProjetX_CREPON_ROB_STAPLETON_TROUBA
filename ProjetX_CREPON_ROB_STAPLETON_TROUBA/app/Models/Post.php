@@ -7,10 +7,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Post extends Model
 {
 
+    protected $fillable = ['textpost', 'datepost', 'idcompte'];
 
     protected $table = 'post';
     protected $primaryKey = 'idpost';
     public $timestamps = false;
+
 
     public function compte()
     {
