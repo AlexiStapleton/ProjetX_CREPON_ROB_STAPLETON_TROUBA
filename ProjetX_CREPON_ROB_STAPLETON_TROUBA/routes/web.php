@@ -17,3 +17,5 @@ Route::get("/post/{id}", [PostController::class, 'post'])->name('post.show');
 
 Route::get("/posts", [PostController::class, 'posts'])->name('post.showall');
 
+Route::post("/posts", [PostController::class, 'store'])->name('post.store')->middleware("auth");
+
