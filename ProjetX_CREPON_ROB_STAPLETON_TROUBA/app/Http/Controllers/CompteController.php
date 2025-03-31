@@ -9,6 +9,7 @@ use App\Models\RT;
 use App\Models\Citation;
 use App\Models\Photo;
 use App\Models\Aime;
+use App\Models\Commentaire;
 use Carbon\Carbon;
 use App\Models\Follow;
 
@@ -16,12 +17,13 @@ class CompteController extends Controller
 {
 
     public function getFeedOfUser($id){
+
+        $idPostsAvecCommentaires = Commentaire::pluck('idpostcommentaire')->toArray();
+
         $posts = Post::where('idcompte', $id)
-            ->with(['compte.photo','photos', 'likes', 'rt', 'commentaires'])
-            ->get()
-            ->map(function ($post) {
-                return $post;
-            });
+            ->whereNotIn('idpost', $idPostsAvecCommentaires)
+            ->with(['compte.photo', 'photos', 'likes', 'rt', 'commentaires'])
+            ->get();
 
         $rts = RT::where('idrtcompte', $id)
             ->with(['compte', 'post.photos', 'post.likes', 'post.rt', 'post.commentaires'])
@@ -74,10 +76,13 @@ class CompteController extends Controller
     public function compte($id)
     {
         $likes = $this->getLikesOfUser($id);
-        $compte = Compte::where('idcompte', $id)->with('photo')->first();
+        $compte = Compte::where('idcompte', $id)->with(['photo', 'followers','followedaccounts'])->first();
+
+
         $photoProfil = Photo::where('idphoto', $compte->idppcompte)->first();
 
         $feed = $this->getFeedOfUser($id);
+
 
 
         return view('compte')->with('compte', $compte)->with('feed', $feed)->with('likes', $likes)->with('photoProfil', $photoProfil);

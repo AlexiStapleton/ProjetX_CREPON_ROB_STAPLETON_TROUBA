@@ -20,4 +20,10 @@ class Compte extends Model
     {
         return $this->hasManyThrough(Post::class, Aime::class, 'idcompte', 'idpost', 'idcompte', 'idpost');
     }
+    public function followers(){
+        return $this->hasMany(Follow::class, 'idcomptefollow', 'idcompte');
+    }
+    public function followedaccounts(){
+        return $this->hasMany(Follow::class, 'idcomptequifollow', 'idcompte');
+    }
 }
