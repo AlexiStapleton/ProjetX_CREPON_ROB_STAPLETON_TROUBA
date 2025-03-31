@@ -7,9 +7,8 @@ use App\Http\Controllers\CompteController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
-});
-
+    return view('connexion');
+})->name('connexion');
 Route::get("/compte/{id}", [CompteController::class, 'compte'])->name('compte.show');
 Route::get("/feed/{id}", [CompteController::class, 'feed'])->name('feed.show');
 
