@@ -68,7 +68,6 @@
         </div>
     </div>
 
-
     @foreach($feed as $element)
         <div class="elementdiv">
             @if($element instanceof App\Models\Post)

@@ -14,7 +14,7 @@
     </div>
     <div id="div_post">
         <img class="img_profile img_post" src="https://pbs.twimg.com/profile_images/1695959673646551040/OJ9rAupv_x96.jpg" alt="">
-        <div id="div_input">
+        <form action="" id="div_input">
             <input id="input_post" type="text" placeholder="What's happening">
             <div id="div_button">
                 <ul id="ul_but_post">
@@ -27,7 +27,7 @@
                 </ul>
                 <button id="but_post_main">Post</button>
             </div>
-        </div>
+        </form>
     </div>
 @foreach($feed as $element)
     @if($element instanceof App\Models\Post)
