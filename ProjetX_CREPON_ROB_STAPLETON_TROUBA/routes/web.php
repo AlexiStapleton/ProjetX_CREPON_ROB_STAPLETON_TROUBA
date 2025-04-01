@@ -1,12 +1,12 @@
 <?php
 
 
-use App\Http\Controllers\AimeController;
 use App\Http\Controllers\ConnexionController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CompteController;
 use App\Http\Controllers\RTController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AimeController;
 
 Route::get('/', function () {
     return view('connexion');
