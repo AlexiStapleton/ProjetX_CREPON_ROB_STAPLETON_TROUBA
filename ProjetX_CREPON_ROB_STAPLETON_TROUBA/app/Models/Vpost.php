@@ -9,4 +9,13 @@ class Vpost extends Model
     protected $table = 'vpost';
 
     public $timestamps = false;
+
+    public function likes(){
+        return $this->hasMany(Aime::class, 'idaimepost', 'idpost');
+    }
+    public function userLiked()
+    {
+        return $this->likes()->where('idaimecompte', auth()->id())->exists();
+    }
+
 }

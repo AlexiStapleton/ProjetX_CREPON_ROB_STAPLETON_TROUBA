@@ -7,21 +7,34 @@ use App\Models\Aime;
 
 class AimeController extends Controller
 {
-    public function toggleLike(Request $request){
-        dd("oui");
-        $idcompte = $request->input("user_id");
-        $idpost = $request->input("post_id");
+    public function toggleLike(Request $request)
+    {
+        dd("bonjour");
+        $user_id = $request->user_id;
+        $post_id = $request->post_id;
 
-        $check = Aime::where("user_id", $idcompte)->where("post_id", $idpost)->first();
+        // Vérifier si l'utilisateur a déjà liké
+        $like = Aime::where('idaimecompte', $user_id)
+            ->where('idaimepost', $post_id)
+            ->first();
 
-        if($check){
-            $check->delete();
-        }
-        else{
+        if ($like) {
+            $like->delete(); // Supprimer le like
+            $liked = false;
+        } else {
             Aime::create([
-                'idaimecompte' => $idcompte,
-                'idaimecompte' => $idpost
+                'idaimecompte' => $user_id,
+                'idaimepost'   => $post_id
             ]);
+            $liked = true;
         }
+
+        // Récupérer le nouveau nombre de likes
+        $likesCount = Aime::where('idaimepost', $post_id)->count();
+
+        return response()->json([
+            'liked'       => $liked,
+            'likes_count' => $likesCount
+        ]);
     }
 }
