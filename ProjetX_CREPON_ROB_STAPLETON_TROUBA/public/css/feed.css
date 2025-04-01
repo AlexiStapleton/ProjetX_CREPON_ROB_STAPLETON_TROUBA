@@ -323,11 +323,13 @@ svg{
     white-space: wrap;
     width: 100%;
     margin-top: .5%;
+    margin-bottom: .5%;
 
     font-weight: 300;
 }
 
 .div_img_post{
+    margin-top: 2%;
     border-radius: 10px;
     overflow: hidden;
     display: flex; 
@@ -607,5 +609,18 @@ svg{
     width: 30%;
     height: 30%;
     background-color: black;
+    border-radius: 10px;
+}
+
+.head_post_reply{
+    display: flex;
+}
+
+.post_reply_citation{
+    padding: 1%;
+    margin-left: 30%;
+    margin-bottom: 5%;
+    margin-right: 5%;
+    border: solid 1px rgb(87, 87, 87);
     border-radius: 10px;
 }
