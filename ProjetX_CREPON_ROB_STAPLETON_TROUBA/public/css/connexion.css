@@ -160,7 +160,7 @@ html{
     background-color: rgba(91, 112, 131, 0.4);
   }
 
-   #background_popup_inscription{
+  /* #background_popup_inscription{
        width: 100%;
        height: 100%;
 
@@ -169,7 +169,7 @@ html{
        position: fixed;
 
        background-color: rgba(91, 112, 131, 0.4);
-   }
+   }*/
 
 
   #popup_connexion{
@@ -190,6 +190,7 @@ html{
     transform: translate(-50%, -50%);
   }
 
+/*
 #popup_inscription{
     width: 31vw;
     height: 34vw;
@@ -207,6 +208,7 @@ html{
     top: 50%;
     transform: translate(-50%, -50%);
 }
+*/
 
   #button_close{
     position: absolute;
@@ -219,7 +221,7 @@ html{
     font-size: 125%;
   }
 
-  #button_close_inscription{
+  /*#button_close_inscription{
       position: absolute;
       background-color: transparent;
       border: none;
@@ -228,7 +230,7 @@ html{
       top: 3%;
       left: 3%;
       font-size: 125%;
-  }
+  }*/
 
   #logo_info_connexion{
     position: absolute;
