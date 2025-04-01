@@ -63,7 +63,7 @@
                     <img class="img_profile" src="https://pbs.twimg.com/profile_images/1695959673646551040/OJ9rAupv_x96.jpg" alt="">
                     <div id="div_nom">
                         <p class="p_info">{{$compte->pseudocompte}}</p>
-                        <p class="p_info p_pseudo">@{{$compte->logincompte}}</p>
+                        <p class="p_info p_pseudo">@.{{$compte->logincompte}}</p>
                     </div>
                 </div>
                 <p>•••</p>
@@ -72,7 +72,7 @@
             @yield('content')
 
         <div id="right_side">
-                
+
         </div>
     </div>
 </body>

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('css')
-<link rel="stylesheet" href="{{ asset('css/compte.css') }}">
+{{ HTML::style('css/compte.css') }}
 @endsection
 
 @section('content')
@@ -10,7 +10,7 @@
         <svg id="svg_back_compte" viewBox="0 0 24 24" aria-hidden="true" style="color: rgb(239, 243, 244);"><g><path d="M7.414 13l5.043 5.04-1.414 1.42L3.586 12l7.457-7.46 1.414 1.42L7.414 11H21v2H7.414z"></path></g></svg>
         <div>
             <p class="p_head_compte p_name_head">{{$compte->pseudocompte}}</p>
-            <p class="p_head_compte" id="p_post_head">12.1K posts</p>
+            <p class="p_head_compte" id="p_post_head">{{ $compte->posts->count() }}</p>
         </div>
     </div>
     <div id="banniere_container">
@@ -38,14 +38,14 @@
     <div id="margin">
         <div id="info_name">
             <p class="p_head_compte p_name_head">{{$compte->pseudocompte}}</p>
-            <p class="p_head_compte p_pseudo">@{{$compte->logincompte}}</p>
+            <p class="p_head_compte p_pseudo">@.{{$compte->logincompte}}</p>
         </div>
         <div id="bio">
             <p>{{$compte->descriptioncompte}}</p>
         </div>
         <div id="info_follow">
-            <p class="p_info_follow"><span class="nb_follow">10</span> Following</p>
-            <p class="p_info_follow"><span class="nb_follow">100</span> Followers</p>
+            <p class="p_info_follow"><span class="nb_follow">{{ $compte->followers->count() }}</span> Following</p>
+            <p class="p_info_follow"><span class="nb_follow">{{ $compte->followedaccounts->count() }}</span> Followers</p>
         </div>
     </div>
 

@@ -4,235 +4,276 @@ html{
     height: 100%;
     width: 100%;
   }
-  
+
   body{
     padding: 0;
     margin: 0;
     background-color: black;
     height: 100%;
-  
+
     font-family: 'Helvetica Neue', Arial, sans-serif;
   }
-  
+
   .container{
     display: flex;
-  
+
     height: 100%;
   }
-  
+
   .text{
     color: white;
   }
-  
+
   /* Img */
   #img_container{
     flex: 2;
-  
+
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  
+
   #img_container img{
     width: 60%;
     height: 60%;
   }
-  
+
   /* Partie login */
   #login_container{
     flex: 1;
-  
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-  
+
     padding-right: 10%;
   }
-  
+
   #left_content_container{
     height: 100%;
-  
+
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
-  
+
   #title_1{
     font-weight: bold;
     font-size: 400%;
   }
-  
+
   #div_inscription{
     width: 50%;
-  
+
     display: flex;
     flex-direction: column;
   }
-  
+
   #div_inscription > *{
     margin-top: 2%;
   }
-  
+
   #title_2{
     font-weight: bold;
     font-size: 200%;
   }
-  
+
   .button{
     padding: 10px 20px 10px 20px;
     border-radius: 20px;
     border: none;
     width: 100%;
-  
+
     font-size: 100%;
     font-weight: bold;
   }
-  
+
   .b_connexion{
     background-color: white;
     text-wrap: nowrap;
-  
+
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 1%;
   }
-  
+
   .button_logo{
     width: 20px;
     height: 20px;
   }
-  
+
   .separator {
     display: flex;
     align-items: center;
     text-align: center;
     width: 100%;
   }
-  
+
   .separator::before,
   .separator::after {
     content: "";
     flex: 1;
     border-top: 2px solid gray;
   }
-  
+
   .separator span {
     padding: 0 10px;
     color: white;
   }
-  
+
   #b_creer_compte{
     background-color: rgb(29, 155, 240);
-  
+
     color: white;
   }
-  
+
   #div_connexion{
     margin-top: 7%;
     width: 50%;
-  
+
     display: flex;
     flex-direction: column;
   }
-  
+
   #text_connexion{
     font-size: 100%;
   }
-  
+
   #b_connexion{
     background-color: black;
     color: rgb(29, 155, 240);
-  
+
     border: 1px solid gray !important;
   }
-  
+
   /* Pop Up Connexion */
   #background_popup{
     width: 100%;
     height: 100%;
-  
+
     display: none;
-  
+
     position: fixed;
-  
+
     background-color: rgba(91, 112, 131, 0.4);
   }
-  
+
+   #background_popup_inscription{
+       width: 100%;
+       height: 100%;
+
+       display: none;
+
+       position: fixed;
+
+       background-color: rgba(91, 112, 131, 0.4);
+   }
+
+
   #popup_connexion{
     width: 31vw;
     height: 34vw;
-  
+
     background-color: black;
     border-radius: 20px;
-  
+
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-  
+
     position: relative;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
   }
-  
+
+#popup_inscription{
+    width: 31vw;
+    height: 34vw;
+
+    background-color: black;
+    border-radius: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
   #button_close{
     position: absolute;
     background-color: transparent;
     border: none;
     color: white;
-  
+
     top: 3%;
     left: 3%;
     font-size: 125%;
   }
-  
+
+  #button_close_inscription{
+      position: absolute;
+      background-color: transparent;
+      border: none;
+      color: white;
+
+      top: 3%;
+      left: 3%;
+      font-size: 125%;
+  }
+
   #logo_info_connexion{
     position: absolute;
     width: 7%;
     aspect-ratio: 1;
-  
+
     top: 2%;
     left: 50%;
     transform: translateX(-50%);
   }
-  
+
   #info_connexion{
     height: 100%;
     width: 50%;
-  
+
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-  
+
     gap: 3%;
   }
-  
+
   #title_info_connexion{
     color: white;
   }
-  
+
   .input_connexion{
     background-color: black;
     border: 0.5px solid gray;
     border-radius: 5px;
-  
+
     width: 100%;
     box-sizing: border-box;
     padding: 5% 5% 5% 5%;
-  
+
     font-size: 100%;
     font-weight: 200;
   }
-  
+
   #b_suivant{
     background-color: white;
     color: black;
   }
-  
+
   #b_mdp{
     background-color: black;
     color: white;
