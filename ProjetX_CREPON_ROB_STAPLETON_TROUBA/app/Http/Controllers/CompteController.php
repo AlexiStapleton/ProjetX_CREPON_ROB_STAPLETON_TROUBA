@@ -38,6 +38,15 @@ class CompteController extends Controller
 
         return $sortedFeed;
     }
+    public function whoToFollow($id){
+        $followedAccound = Follow::where('idcomptequifollow', $id)->pluck('idcomptefollow');
+        $followedAccound = $followedAccound->push(intval($id));
+
+        $accountToFollow = Compte::whereNotIn('idcompte', $followedAccound)->get();
+
+
+        return $accountToFollow;
+    }
 
     public function getLikesOfUser($id){
         $lesLikes = Aime::where('idaimecompte', $id)->get();
@@ -78,9 +87,9 @@ class CompteController extends Controller
 
         $feed = $this->getFeedOfUser($id);
 
+        $whoToFollow = $this->whoToFollow($id);
 
-
-        return view('compte')->with('compte', $compte)->with('feed', $feed)->with('likes', $likes)->with('photoProfil', $photoProfil);
+        return view('compte')->with('compte', $compte)->with('feed', $feed)->with('likes', $likes)->with('photoProfil', $photoProfil)->with('whoToFollow', $whoToFollow);
     }
     public function feed($id){
         $compteUser = Compte::where('idcompte', $id)->with('photo')->first();
@@ -101,8 +110,8 @@ class CompteController extends Controller
         }
         $sortedfeed = $this->sortFeed($feed);
 
+        $whoToFollow = $this->whoToFollow($id);
 
-
-        return view('feed')->with('compte', $compteUser)->with('feed', $sortedfeed);
+        return view('feed')->with('compte', $compteUser)->with('feed', $sortedfeed)>with('whoToFollow', $whoToFollow);
     }
 }
