@@ -32,7 +32,7 @@
             </div>
 
             <button class="button" id="b_creer_compte">Créer un compte</button>
-              <div id="background_popup_inscription">
+              {{--<div id="background_popup_inscription">
                   <form id="popup_inscription" action="{{ route('signup') }}" method="POST">
                       @csrf
                       <button id="button_close_inscription">X</button>
@@ -59,7 +59,7 @@
                           <button class="button" id="b_mdp">Mot de passe oublié ?</button>
                       </div>
                   </form>
-              </div>
+              </div>--}}
           </div>
           </div>
           <div id="div_connexion">
@@ -89,7 +89,6 @@
             </div>
         </form>
       </div>
-    </div>
   </body>
 
   <script src="{{asset('js/main.js')}}"></script>
