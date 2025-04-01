@@ -18,8 +18,8 @@
 
         <form action="{{ route('posts.store')}}" id="div_input" method="POST">
             @csrf
-            <textarea name="textpost" maxlength="280" placeholder="What's happening?" required></textarea>
-            <input type="file" name="images[]" accept="image/*">
+            <textarea id="input_post" name="textpost" maxlength="280" placeholder="What's happening?" required></textarea>
+            <input id="imageInput" type="file" name="images[]" accept="image/*">
             <input type="hidden" name="user_id" value="{{ $compte->idcompte }}">
             <div id="div_button">
                 <ul id="ul_but_post">
@@ -43,4 +43,5 @@
     </div>
     @include('partials.post_partials', ['feed' => $feed])
 </div>
+<script src="{{ asset('js/feed.js') }}"></script>
 @endsection
