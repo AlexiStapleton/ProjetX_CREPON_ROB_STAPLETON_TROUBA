@@ -136,7 +136,7 @@ svg{
 
 .p_pseudo{
     font-size: 90%;
-    color: rgba(163, 163, 163, 0.688);
+    color: rgba(163, 163, 163, 0.688) !important;
 }
 
 .hov_but:hover{
@@ -282,6 +282,10 @@ svg{
     padding-bottom: 1%;
 }
 
+.content_post_rt{
+    padding-top: 0% !important;
+}
+
 .div_image{
     flex: .3;
 
@@ -393,8 +397,8 @@ svg{
     border: none;
     background-color: transparent;
     color: rgb(87, 87, 87);
-    font-size: 100%;
-    font-weight: 300;
+    font-size: 80%;
+    font-weight: 200;
 }
 
 .button_post{
@@ -544,6 +548,29 @@ svg{
     color: white !important;
     font-weight: bold;
     font-size: 100%;
+}
+
+.div_retweet{
+    margin-left: 7%;
+    padding: 1%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 2%;
+}
+
+.div_retweet svg{
+    width: 20px;
+    height: 20px;
+    fill: rgb(155, 155, 155);
+}
+
+.div_retweet p{
+    color: rgb(155, 155, 155);
+    font-weight: bold;
+    font-size: 80%;
+    padding: 0;
+    margin: 0;
 }
 
 /*--------------RIGHT SIDE--------------*/

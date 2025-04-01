@@ -8,6 +8,7 @@
     <title>Document</title>
 </head>
 <body>
+    {{dd($whotofollow)}}
     <div class="container">
         <div id="left_side">
             <ul id="ul_cat">
