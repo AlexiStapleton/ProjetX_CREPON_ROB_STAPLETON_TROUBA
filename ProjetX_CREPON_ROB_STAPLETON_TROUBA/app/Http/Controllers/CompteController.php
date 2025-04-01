@@ -112,6 +112,8 @@ class CompteController extends Controller
 
         $whoToFollow = $this->whoToFollow($id);
 
-        return view('feed')->with('compte', $compteUser)->with('feed', $sortedfeed)>with('whoToFollow', $whoToFollow);
+        view()->share('whoToFollow', $whoToFollow);
+
+        return view('feed')->with('compte', $compteUser)->with('feed', $sortedfeed)->with('whoToFollow', $whoToFollow);
     }
 }

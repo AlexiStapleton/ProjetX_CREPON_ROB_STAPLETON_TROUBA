@@ -27,6 +27,6 @@ class RTController extends Controller
                 'idrtpost' => $idpost,
             ]);
         }
-        return view('feed');
+        return back();
     }
 }
