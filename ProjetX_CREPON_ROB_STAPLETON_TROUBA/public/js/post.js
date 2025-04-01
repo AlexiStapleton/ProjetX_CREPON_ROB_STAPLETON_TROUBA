@@ -15,3 +15,28 @@ document.addEventListener("click", (event) => {
         }
     });
 });
+
+document.querySelectorAll(".quote").forEach(div => {
+    div.addEventListener("click", (event) => {
+        const bk = document.querySelector("#background_popup");
+        if (bk) {
+            bk.style.display = "flex";
+            event.stopPropagation();
+        }
+    });
+});
+
+document.addEventListener("click", (event) => {
+    const popup = document.querySelector("#background_popup");
+    if (popup && !popup.contains(event.target)) {
+        popup.style.display = "none";
+    }
+});
+
+document.querySelectorAll("#background_popup").forEach(div => {
+    div.addEventListener("click", (event) => {
+        if (event.target === div) {
+            div.style.display = "none";
+        }
+    });
+});

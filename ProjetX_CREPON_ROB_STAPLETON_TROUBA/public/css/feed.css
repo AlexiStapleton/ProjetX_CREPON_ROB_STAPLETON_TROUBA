@@ -557,3 +557,55 @@ svg{
     padding: 3%;
     margin-right: 4%;
 }
+
+#background_popup{
+    width: 100vw;
+    height: 100vh;
+  
+    display: none;
+    align-items: center;
+    justify-content: center;
+  
+    position: fixed;
+    top: 0;
+    left: 0;
+  
+    background-color: rgba(91, 112, 131, 0.4);
+    z-index: 9999;
+}
+  
+#popup_connexion{
+    width: 31vw;
+    height: 34vw;
+  
+    background-color: black;
+    border-radius: 20px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+  
+#button_close{
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    color: white;
+  
+    top: 3%;
+    left: 3%;
+    font-size: 125%;
+}
+
+#div_citation{
+    width: 30%;
+    height: 30%;
+    background-color: black;
+    border-radius: 10px;
+}
