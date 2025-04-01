@@ -39,6 +39,7 @@ class CompteController extends Controller
 
         return $sortedFeed;
     }
+
     public function whoToFollow($id){
         $followedAccound = Follow::where('idcomptequifollow', $id)->pluck('idcomptefollow');
         $followedAccound = $followedAccound->push(intval($id));
@@ -118,5 +119,45 @@ class CompteController extends Controller
         $whoToFollow = $this->whoToFollow($id);
 
         return view('feed')->with('compte', $compteUser)->with('feed', $sortedfeed)->with('whotofollow', $whoToFollow);
+    }
+
+    public function explore($id, Request $request)
+    {
+        $query = $request->input('query'); // Récupère le texte de l'input
+        
+        // Récupère tous les posts
+        $posts = Vpost::whereNotIn('idpost', Commentaire::pluck('idpostcommentaire')->toArray())
+            ->whereNotIn('idpost', Citation::pluck('idpostcitation')->toArray());
+        
+        // Si une recherche est effectuée, filtre les posts
+        if (!empty($query)) {
+            $posts = $posts->where('textpost', 'LIKE', "%$query%");
+        }
+        
+        $posts = $posts->get();
+        
+        $citations = Vcitation::query();
+        if (!empty($query)) {
+            $citations = $citations->where('textpost', 'LIKE', "%$query%");
+        }
+        $citations = $citations->get();
+        
+        $rts = Vrt::query();
+        if (!empty($query)) {
+            $rts = $rts->where('textpost', 'LIKE', "%$query%");
+        }
+        $rts = $rts->get();
+        
+        // Fusionne tous les résultats
+        $feed = collect()->merge($posts)->merge($citations)->merge($rts);
+        
+        // Trie les posts
+        $sortedFeed = $this->sortFeed($feed);
+
+        $compteUser = Compte::where('idcompte', $id)->with('photo')->first();
+
+        $whoToFollow = $this->whoToFollow($id);
+        
+        return view('explore')->with('compte', $compteUser)->with('feed', $sortedFeed)->with('whotofollow', $whoToFollow);
     }
 }

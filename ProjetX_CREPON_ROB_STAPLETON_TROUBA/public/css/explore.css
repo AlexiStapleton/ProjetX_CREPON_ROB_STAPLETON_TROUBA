@@ -1,0 +1,53 @@
+:root {
+    --border-style: 0.8px solid rgb(87, 87, 87);
+}
+
+#contain_input{
+    border-bottom: var(--border-style);
+    padding-top: 1%;
+    padding-bottom: 5%;
+}
+
+#input_recherche{
+    background-color: transparent;
+    border: var(--border-style);
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 5%;
+    margin-left: 5%;
+    padding: 1%;
+}
+
+#input_recherche svg{
+    margin-left: 2%;
+    fill: rgb(87, 87, 87);
+}
+
+#input_recherche input{
+    background-color: transparent;
+    font-size: 110%;
+    color: rgb(87, 87, 87);
+}
+
+#div_logo_search{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#button_search{
+    margin-right: 5%;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 100%;
+    font-weight: bold;
+    transition: all 0.5s ease;
+}
+
+#button_search:hover{
+    filter: invert(30%);
+}
