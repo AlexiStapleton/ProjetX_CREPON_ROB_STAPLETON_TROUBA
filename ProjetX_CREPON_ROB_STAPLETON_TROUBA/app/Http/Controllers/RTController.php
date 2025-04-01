@@ -20,15 +20,13 @@ class RTController extends Controller
 
         if($check){
             $check->delete();
-            dd($check);
         }else{
             RT::create([
                 'datert' => now()->format('d-m-y'),
                 'idrtcompte' => $idcompte,
                 'idrtpost' => $idpost,
             ]);
-            dd($check);
         }
-
+        return view('feed');
     }
 }
