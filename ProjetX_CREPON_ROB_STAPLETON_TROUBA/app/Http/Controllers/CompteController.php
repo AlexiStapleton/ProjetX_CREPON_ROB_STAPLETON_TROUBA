@@ -23,6 +23,7 @@ class CompteController extends Controller
 
         $posts = Vpost::where('idcompte', $id)
             ->whereNotIn('idpost', Commentaire::pluck('idpostcommentaire')->toArray())
+            ->whereNotIn('idpost', Citation::pluck('idpostcitation')->toArray())
             ->get();
 
         $citations = Vcitation::where('idcompteposter', $id)->get();

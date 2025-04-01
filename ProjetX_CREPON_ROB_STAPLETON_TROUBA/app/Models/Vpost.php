@@ -17,5 +17,8 @@ class Vpost extends Model
     {
         return $this->likes()->where('idaimecompte', auth()->id())->exists();
     }
-
+    public function aimes()
+    {
+        return $this->hasMany(Aime::class, 'idaimepost', 'idpost');
+    }
 }

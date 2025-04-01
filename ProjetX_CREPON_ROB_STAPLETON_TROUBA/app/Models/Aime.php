@@ -11,6 +11,7 @@ class Aime extends Model
 
     protected $table = 'aime';
     protected $primaryKey = 'idaime';
+    public $timestamps = false;
 
     protected $fillable = [
         'idaimecompte',

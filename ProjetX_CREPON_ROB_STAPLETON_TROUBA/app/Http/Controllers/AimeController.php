@@ -7,11 +7,12 @@ use App\Models\Aime;
 
 class AimeController extends Controller
 {
+
     public function toggleLike(Request $request)
     {
 
-        $user_id = $request->user_id;
-        $post_id = $request->post_id;
+        $user_id = $request->input('user_id');
+        $post_id = $request->input('post_id');
 
         $check = Aime::where('idaimecompte', $user_id)
             ->where('idaimepost', $post_id)
@@ -27,4 +28,5 @@ class AimeController extends Controller
         }
         return back();
     }
+
 }
