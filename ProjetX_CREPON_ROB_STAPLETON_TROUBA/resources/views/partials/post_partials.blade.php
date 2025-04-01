@@ -27,14 +27,27 @@
                                     <p class="p_info_but">{{ $element->nbcommentaires }}</p>
                                 </form>
                             </li>
-                            <li class="li_but_post hov_green">
-                                <form class="form_but_post" action="{{ route('rt.toggle') }}" method="POST">
+                            <li class="li_but_post hov_green li_rt">
+                                <div class="div_rt">
+                                    <form class="div_rep" action="{{ route('rt.toggle') }}" method="POST">
                                     @csrf
-                                    <input type="hidden" name="user_id" value="{{ $compte->idcompte }}">
-                                    <input type="hidden" name="post_id" value="{{ $element->idpost }}">
-                                    <svg class="svg_but_post" viewBox="0 0 24 24" aria-hidden="true"><g><path d="M4.5 3.88l4.432 4.14-1.364 1.46L5.5 7.55V16c0 1.1.896 2 2 2H13v2H7.5c-2.209 0-4-1.79-4-4V7.55L1.432 9.48.068 8.02 4.5 3.88zM16.5 6H11V4h5.5c2.209 0 4 1.79 4 4v8.45l2.068-1.93 1.364 1.46-4.432 4.14-4.432-4.14 1.364-1.46 2.068 1.93V8c0-1.1-.896-2-2-2z"></path></g></svg>
-                                    <button type="submit" class="p_info_but">{{ $element->nb_rts }}</button>
-                                </form>
+                                        <svg viewBox="0 0 24 24" aria-hidden="true"><g><path d="M4.5 3.88l4.432 4.14-1.364 1.46L5.5 7.55V16c0 1.1.896 2 2 2H13v2H7.5c-2.209 0-4-1.79-4-4V7.55L1.432 9.48.068 8.02 4.5 3.88zM16.5 6H11V4h5.5c2.209 0 4 1.79 4 4v8.45l2.068-1.93 1.364 1.46-4.432 4.14-4.432-4.14 1.364-1.46 2.068 1.93V8c0-1.1-.896-2-2-2z"></path></g></svg>
+                                        <button type="submit">Repost</button>
+                                    </form>
+
+                                    <form class="div_rep" action="{{ route('rt.toggle') }}" method="POST">
+                                    @csrf
+                                        <svg viewBox="0 0 24 24" aria-hidden="true"><g><path d="M14.23 2.854c.98-.977 2.56-.977 3.54 0l3.38 3.378c.97.977.97 2.559 0 3.536L9.91 21H3v-6.914L14.23 2.854zm2.12 1.414c-.19-.195-.51-.195-.7 0L5 14.914V19h4.09L19.73 8.354c.2-.196.2-.512 0-.708l-3.38-3.378zM14.75 19l-2 2H21v-2h-6.25z"></path></g></svg>
+                                        <button type="submit">Quote</button>
+                                    </form>
+                                </div>
+                                <!-- <form class="div_rep" action="{{ route('rt.toggle') }}" method="POST">
+                                    @csrf -->
+                                <input type="hidden" name="user_id" value="{{ $compte->idcompte }}">
+                                <input type="hidden" name="post_id" value="{{ $element->idpost }}">
+                                <svg class="svg_but_post" viewBox="0 0 24 24" aria-hidden="true"><g><path d="M4.5 3.88l4.432 4.14-1.364 1.46L5.5 7.55V16c0 1.1.896 2 2 2H13v2H7.5c-2.209 0-4-1.79-4-4V7.55L1.432 9.48.068 8.02 4.5 3.88zM16.5 6H11V4h5.5c2.209 0 4 1.79 4 4v8.45l2.068-1.93 1.364 1.46-4.432 4.14-4.432-4.14 1.364-1.46 2.068 1.93V8c0-1.1-.896-2-2-2z"></path></g></svg>
+                                <p class="p_info_but">{{ $element->nb_rts }}</p>
+                                <!-- <button class="but_submit" type="submit" class="p_info_but">{{ $element->nb_rts }}</button> -->
                             </li>
                             <li class="li_but_post hov_red">
                                 <form class="form_but_post" action="">
@@ -92,11 +105,27 @@
                                     <p class="p_info_but">{{ $element->nbcommentaires }}</p>
                                 </form>
                             </li>
-                            <li class="li_but_post hov_green">
-                                <form class="form_but_post" action="">
-                                    <svg class="svg_but_post" viewBox="0 0 24 24" aria-hidden="true"><g><path d="M4.5 3.88l4.432 4.14-1.364 1.46L5.5 7.55V16c0 1.1.896 2 2 2H13v2H7.5c-2.209 0-4-1.79-4-4V7.55L1.432 9.48.068 8.02 4.5 3.88zM16.5 6H11V4h5.5c2.209 0 4 1.79 4 4v8.45l2.068-1.93 1.364 1.46-4.432 4.14-4.432-4.14 1.364-1.46 2.068 1.93V8c0-1.1-.896-2-2-2z"></path></g></svg>
-                                    <p class="p_info_but">{{ $element->nb_rts }}</p>
-                                </form>
+                            <li class="li_but_post hov_green li_rt">
+                                <div class="div_rt">
+                                    <form class="div_rep" action="{{ route('rt.toggle') }}" method="POST">
+                                    @csrf
+                                        <svg viewBox="0 0 24 24" aria-hidden="true"><g><path d="M4.5 3.88l4.432 4.14-1.364 1.46L5.5 7.55V16c0 1.1.896 2 2 2H13v2H7.5c-2.209 0-4-1.79-4-4V7.55L1.432 9.48.068 8.02 4.5 3.88zM16.5 6H11V4h5.5c2.209 0 4 1.79 4 4v8.45l2.068-1.93 1.364 1.46-4.432 4.14-4.432-4.14 1.364-1.46 2.068 1.93V8c0-1.1-.896-2-2-2z"></path></g></svg>
+                                        <button type="submit">Repost</button>
+                                    </form>
+
+                                    <form class="div_rep" action="{{ route('rt.toggle') }}" method="POST">
+                                    @csrf
+                                        <svg viewBox="0 0 24 24" aria-hidden="true"><g><path d="M14.23 2.854c.98-.977 2.56-.977 3.54 0l3.38 3.378c.97.977.97 2.559 0 3.536L9.91 21H3v-6.914L14.23 2.854zm2.12 1.414c-.19-.195-.51-.195-.7 0L5 14.914V19h4.09L19.73 8.354c.2-.196.2-.512 0-.708l-3.38-3.378zM14.75 19l-2 2H21v-2h-6.25z"></path></g></svg>
+                                        <button type="submit">Quote</button>
+                                    </form>
+                                </div>
+                                <!-- <form class="div_rep" action="{{ route('rt.toggle') }}" method="POST">
+                                    @csrf -->
+                                <input type="hidden" name="user_id" value="{{ $compte->idcompte }}">
+                                <input type="hidden" name="post_id" value="{{ $element->idpost }}">
+                                <svg class="svg_but_post" viewBox="0 0 24 24" aria-hidden="true"><g><path d="M4.5 3.88l4.432 4.14-1.364 1.46L5.5 7.55V16c0 1.1.896 2 2 2H13v2H7.5c-2.209 0-4-1.79-4-4V7.55L1.432 9.48.068 8.02 4.5 3.88zM16.5 6H11V4h5.5c2.209 0 4 1.79 4 4v8.45l2.068-1.93 1.364 1.46-4.432 4.14-4.432-4.14 1.364-1.46 2.068 1.93V8c0-1.1-.896-2-2-2z"></path></g></svg>
+                                <p class="p_info_but">{{ $element->nb_rts }}</p>
+                                <!-- <button class="but_submit" type="submit" class="p_info_but">{{ $element->nb_rts }}</button> -->
                             </li>
                             <li class="li_but_post hov_red">
                                 <form class="form_but_post" action="">
@@ -120,4 +149,5 @@
             </div>
         @endif
     </div>
+    <script src="{{ asset('js/post.js') }}"></script>
 @endforeach

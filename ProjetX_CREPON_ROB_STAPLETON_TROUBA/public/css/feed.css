@@ -387,6 +387,14 @@ svg{
     object-fit: cover;
 }
 
+.but_submit{
+    border: none;
+    background-color: transparent;
+    color: rgb(87, 87, 87);
+    font-size: 100%;
+    font-weight: 300;
+}
+
 .button_post{
     display: flex;
     align-items: center;
@@ -410,6 +418,7 @@ svg{
 }
 
 .li_but_post{
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -451,6 +460,10 @@ svg{
     color: rgb(0, 186, 124);
 }
 
+.li_but_post:hover.hov_green .but_submit {
+    color: rgb(0, 186, 124);
+}
+
 /* Pour le rouge */
 .li_but_post:hover.hov_red {
     background-color: rgba(249, 24, 128, 0.3);
@@ -485,6 +498,50 @@ svg{
 .hov_blue_svg:hover{
     fill: rgb(29, 155, 240);
     background-color: rgba(29, 156, 240, 0.3);
+}
+
+/*--------------RT--------------*/
+.div_rt{
+    position: absolute;
+    display: none;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 9vh;
+    width: 5.5vw;
+    border-radius: 10px;
+    background-color: black;
+    box-shadow: 0 0 5px 0px white;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    z-index: 10;
+}
+
+.div_rep{
+    margin-left: 7%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    gap: 10%;
+}
+
+.div_rep svg{
+    height: 30px;
+    width: 30px;
+}
+
+.div_rep button{
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    color: white !important;
+    font-weight: bold;
+    font-size: 100%;
 }
 
 /*--------------RIGHT SIDE--------------*/
