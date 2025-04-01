@@ -93,7 +93,7 @@ class CompteController extends Controller
 
         view()->share('whoToFollow', $whoToFollow);
 
-        return view('compte')->with('compte', $compte)->with('feed', $feed)->with('likes', $likes)->with('photoProfil', $photoProfil)->with('whoToFollow', $whoToFollow);
+        return view('compte')->with('compte', $compte)->with('feed', $feed)->with('likes', $likes)->with('photoProfil', $photoProfil)->with('whotofollow', $whoToFollow);
     }
     public function feed($id){
         $compteUser = Compte::where('idcompte', $id)->with('photo')->first();
@@ -116,8 +116,6 @@ class CompteController extends Controller
 
         $whoToFollow = $this->whoToFollow($id);
 
-        view()->share('whoToFollow', $whoToFollow);
-
-        return view('feed')->with('compte', $compteUser)->with('feed', $sortedfeed)->with('whoToFollow', $whoToFollow);
+        return view('feed')->with('compte', $compteUser)->with('feed', $sortedfeed)->with('whotofollow', $whoToFollow);
     }
 }

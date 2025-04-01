@@ -651,3 +651,71 @@ svg{
     border: solid 1px rgb(87, 87, 87);
     border-radius: 10px;
 }
+
+
+/*----------------------WHO TO FOLLOW----------------------*/
+
+.whotofollow{
+    width: 90%;
+    margin-top: 10%;
+    margin-left: 5%;
+    border: var(--border-style);
+    border-radius: 10px;
+    padding: 5%;
+    gap: 1vh;
+}
+.whotofollow h1{
+    color: white;
+    font-size: 125%;
+    font-weight: bolder;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 2vh;
+}
+
+.div_follow{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3%;    
+    margin-bottom: 2vh;
+}
+
+.div_follow:last-child{
+    margin-bottom: 0;
+}
+
+.left_follow{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img_follow{
+    height: 7vh;
+    border-radius: 50px;
+}
+
+.div_nom_follow{
+    margin-left: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 2%;   
+}
+
+.div_nom_follow p{
+    white-space: nowrap;
+}
+
+.but_follow{
+    height: 50%;
+    border: none;
+    border-radius: 50px;
+    background-color: white;
+    padding: 3%;
+    font-size: 90%;
+    font-weight: bold;
+}

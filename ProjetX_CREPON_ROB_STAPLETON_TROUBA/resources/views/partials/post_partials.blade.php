@@ -8,7 +8,7 @@
                 <div class="div_feed_post">
                     <div class="header_feed_post">
                         <p class="p_info p_nom_post"><a href="{{route('compte.show', ['id'=>$element->idcompte])}}">{{ $element->pseudocompte }}</a></p>
-                        <p class="p_info p_pseudo">@{{ $element->logincompte }} • {{$element->datepost}}</p>
+                        <p class="p_info p_pseudo">@ {{ $element->logincompte }} • {{$element->datepost}}</p>
                     </div>
                     <div id="text_marge">
                         <p class="p_text_post">{{ $element->textpost }}</p>
@@ -80,7 +80,7 @@
                             <div class="post_reply_citation">
                                 <div class="header_feed_post">
                                     <p class="p_info p_nom_post">{{ $element->pseudocompte }}</p>
-                                    <p class="p_info p_pseudo">{{ $element->logincompte }}</p>
+                                    <p class="p_info p_pseudo">@ {{ $element->logincompte }}</p>
                                 </div>
                                 <div id="text_marge">
                                     <p class="p_text_post">{{ $element->textpost }}</p>
@@ -119,7 +119,7 @@
                 <div class="div_feed_post">
                     <div class="header_feed_post">
                         <p class="p_info p_nom_post">{{ $element->pseudoposter }}</p>
-                        <p class="p_info p_pseudo">{{ $element->loginposter }} • {{ $element->datepost }}</p>
+                        <p class="p_info p_pseudo">@ {{ $element->loginposter }} • {{ $element->datepost }}</p>
                     </div>
                     <div id="text_marge">
                         <p class="p_text_post">{{ $element->textpost }}</p>
@@ -127,7 +127,7 @@
                     <div class="post_citation">
                         <div class="header_feed_post">
                             <p class="p_info p_nom_post">{{ $element->pseudocompteoriginal }}</p>
-                            <p class="p_info p_pseudo">{{ $element->logincompteoriginal }}</p>
+                            <p class="p_info p_pseudo">@ {{ $element->logincompteoriginal }}</p>
                         </div>
                         <div id="text_marge">
                             <p class="p_text_post">{{ $element->textpostoriginal }}</p>
@@ -195,7 +195,7 @@
                             <div class="post_reply_citation">
                                 <div class="header_feed_post">
                                     <p class="p_info p_nom_post">{{ $element->pseudocompte }}</p>
-                                    <p class="p_info p_pseudo">{{ $element->logincompte }}</p>
+                                    <p class="p_info p_pseudo">@ {{ $element->logincompte }}</p>
                                 </div>
                                 <div id="text_marge">
                                     <p class="p_text_post">{{ $element->textpost }}</p>
@@ -238,7 +238,7 @@
                 <div class="div_feed_post">
                     <div class="header_feed_post">
                         <p class="p_info p_nom_post"><a href="{{route('compte.show', ['id'=>$element->idrtcompte])}}">{{ $element->pseudocompte }}</a></p>
-                        <p class="p_info p_pseudo">@{{ $element->logincompte }} • {{ $element->datepost }}</p>
+                        <p class="p_info p_pseudo">@ {{ $element->logincompte }} • {{ $element->datepost }}</p>
                     </div>
                     <div id="text_marge">
                         <p class="p_text_post">{{ $element->textpost }}</p>
@@ -309,7 +309,7 @@
                             <div class="post_reply_citation">
                                 <div class="header_feed_post">
                                     <p class="p_info p_nom_post">{{ $element->pseudocompte }}</p>
-                                    <p class="p_info p_pseudo">{{ $element->logincompte }}</p>
+                                    <p class="p_info p_pseudo">@ {{ $element->logincompte }}</p>
                                 </div>
                                 <div id="text_marge">
                                     <p class="p_text_post">{{ $element->textpost }}</p>

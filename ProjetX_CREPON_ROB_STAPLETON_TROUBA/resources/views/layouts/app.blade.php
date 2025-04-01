@@ -8,7 +8,6 @@
     <title>Document</title>
 </head>
 <body>
-    {{dd($whotofollow)}}
     <div class="container">
         <div id="left_side">
             <ul id="ul_cat">
@@ -70,10 +69,14 @@
                 <p>•••</p>
             </div>
         </div>
-            @yield('content')
+
+        @yield('content')
 
         <div id="right_side">
-
+            <div class="whotofollow">
+                <h1>Who to follow</h1>
+                @yield('right_side')
+            </div>
         </div>
     </div>
 </body>
