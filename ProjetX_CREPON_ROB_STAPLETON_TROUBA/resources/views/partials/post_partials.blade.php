@@ -14,8 +14,9 @@
                         <p class="p_text_post">{{ $element->textpost }}</p>
                         <div class="div_img_post">
                             @foreach(explode(',', str_replace(['{', '}'], '', $element->photo_urls)) as $photos)
-                                <!-- <img src="{{ $photos }}" alt=""> -->
-                                <img src="{{asset('img/img_post.jpeg')}}" alt="">
+
+                                <img src="{{ asset($photos) }}" alt="{{$photos}}">
+
                             @endforeach
                         </div>
                     </div>
@@ -156,8 +157,8 @@
                         <p class="p_text_post">{{ $element->textpost }}</p>
                         <div class="div_img_post">
                             @foreach(explode(',', str_replace(['{', '}'], '', $element->photo_urls)) as $photos)
-                                <!-- <img src="{{ $photos }}" alt=""> -->
-                                <img src="{{asset('img/img_post.jpeg')}}" alt="">
+                                <img src="{{ asset($photos) }}" alt="">
+
                             @endforeach
                         </div>
                     </div>

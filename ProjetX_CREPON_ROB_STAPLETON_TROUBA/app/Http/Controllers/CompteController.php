@@ -63,7 +63,7 @@ class CompteController extends Controller
     public function sortFeed($feed){
         $sortedFeed = $feed->sortByDesc(function ($item) {
             if (isset($item->datert)) {
-                return Carbon::createFromFormat('d-m-Y', trim($item->datert));
+                return Carbon::createFromFormat('d/m/Y', trim($item->datert));
             }
 
             if (isset($item->datepost)) {
