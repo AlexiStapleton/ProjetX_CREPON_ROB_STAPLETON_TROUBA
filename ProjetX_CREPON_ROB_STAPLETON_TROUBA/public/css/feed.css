@@ -102,7 +102,7 @@ svg{
 
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 
 #info_compte{
@@ -118,6 +118,7 @@ svg{
     height: 100%;
     margin-left: 2%;
     border-radius: 50px;
+    aspect-ratio: 1;
 }
 
 #div_nom{
@@ -696,6 +697,7 @@ svg{
 .img_follow{
     height: 7vh;
     border-radius: 50px;
+    aspect-ratio: 1;
 }
 
 .div_nom_follow{
