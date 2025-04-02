@@ -28,7 +28,8 @@
 #input_recherche input{
     background-color: transparent;
     font-size: 110%;
-    color: rgb(87, 87, 87);
+    color: white;
+    outline: none;
 }
 
 #div_logo_search{

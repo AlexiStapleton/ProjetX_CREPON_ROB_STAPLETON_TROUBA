@@ -30,5 +30,5 @@ Route::post("/connexion", [ConnexionController::class, 'traitement'])->name('con
 
 Route::post("/signup", [ConnexionController::class, 'signup'])->name('signup');
 
-Route::get('/grok', [GrokController::class, 'index']);
+Route::get('/grok', [GrokController::class, 'index'])->name('grok');
 Route::post('/grok', [GrokController::class, 'ask']);

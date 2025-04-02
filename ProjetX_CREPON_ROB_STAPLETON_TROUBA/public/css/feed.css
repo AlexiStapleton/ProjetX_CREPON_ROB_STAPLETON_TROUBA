@@ -418,6 +418,7 @@ svg{
     padding: 0;
 }
 .form_but_post{
+    margin: 0;
     display: flex;
     align-items: center;
     justify-content: center;

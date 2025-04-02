@@ -27,7 +27,7 @@
                                     <p class="p_info_but">{{ $element->nbcommentaires }}</p>
                                 </form>
                             </li>
-                            <li class="li_but_post h    ov_green li_rt">
+                            <li class="li_but_post hov_green li_rt">
                                 <div class="div_rt">
                                     <form class="div_rep" action="{{ route('rt.toggle') }}" method="POST">
                                         @csrf
@@ -273,7 +273,7 @@
                                 <input type="hidden" name="user_id" value="{{ $compte->idcompte }}">
                                 <input type="hidden" name="post_id" value="{{ $element->idpost }}">
                                 <svg class="svg_but_post" viewBox="0 0 24 24" aria-hidden="true"><g><path d="M4.5 3.88l4.432 4.14-1.364 1.46L5.5 7.55V16c0 1.1.896 2 2 2H13v2H7.5c-2.209 0-4-1.79-4-4V7.55L1.432 9.48.068 8.02 4.5 3.88zM16.5 6H11V4h5.5c2.209 0 4 1.79 4 4v8.45l2.068-1.93 1.364 1.46-4.432 4.14-4.432-4.14 1.364-1.46 2.068 1.93V8c0-1.1-.896-2-2-2z"></path></g></svg>
-                                <p class="p_info_but">{{ $element->nb_rts }}</p>
+                                <p class="p_info_but">{{ $element->nbrt }}</p>
                             </li>
                             <li class="li_but_post hov_red">
                                 <form class="form_but_post" action="{{ route('like.toggle') }}" method="POST">
