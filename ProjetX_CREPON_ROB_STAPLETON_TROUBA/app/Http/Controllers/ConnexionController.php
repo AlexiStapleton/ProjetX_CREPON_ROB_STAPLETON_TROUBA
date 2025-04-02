@@ -29,7 +29,7 @@ class ConnexionController extends Controller
 
         // Vérifier si l'utilisateur existe dans la base de données
         $user = Compte::where('logincompte', $login)->first();
-
+        
         // Si l'utilisateur existe et que le mot de passe correspond
         if ($user && Hash::check($password, $user->mdpcompte)) {
             // Authentification réussie, connecter l'utilisateur

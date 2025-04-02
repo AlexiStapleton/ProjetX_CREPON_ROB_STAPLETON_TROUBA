@@ -196,6 +196,7 @@ svg{
 
 .img_post{
     height: 40px;
+    width: 40px;
     margin-top: 2%;
 }
 
@@ -695,6 +696,7 @@ svg{
 
 .img_follow{
     height: 7vh;
+    width: 7vh;
     border-radius: 50px;
 }
 
