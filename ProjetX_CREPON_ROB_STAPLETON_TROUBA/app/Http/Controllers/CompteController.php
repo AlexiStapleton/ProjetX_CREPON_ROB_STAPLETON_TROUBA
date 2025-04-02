@@ -205,7 +205,30 @@ class CompteController extends Controller
             $commentaires->push(Vpost::where('idpost',$commentaire )->first());
         }
 
-        return view('post')->with('post', $feed)->with('whotofollow', $whoToFollow)->with('commentaires', $commentaires);
+        return view('post')->with('post', $feed)->with('whotofollow', $whoToFollow)->with('commentaires', $commentaires)->with('id', $id);
+    }
+    public function commentairepost(Request $request){
+        $validated = $request->validate([
+            'reply' => 'required|string|max:280',
+            'user_id' => 'required|integer',
+            'post_id' => 'required|integer'
+        ]);
+
+        $post = Post::create([
+            'textpost' => $validated['reply'],
+            'datepost' => date('d-m-Y'),
+            'idcompte' => $validated['user_id'],
+        ]);
+
+        $idpost = $post->idpost;
+
+        Commentaire::create([
+            'idpostcommentaire' => $idpost,
+            'idpostoriginalcommentaire' => $validated['post_id'],
+        ]);
+
+
+        return back();
     }
 
 }

@@ -12,15 +12,18 @@
             <p class="p_head_compte p_name_head">Post</p>
         </div>
     </div>
-   
+
     @include('partials.post_partials', ['feed' => $post])
 
     <div id="user_reply">
         <div class="image_pp_reply">
             <img class="img_profile img_post" src="https://pbs.twimg.com/profile_images/1695959673646551040/OJ9rAupv_x96.jpg" alt="">
         </div>
-        <form id="form_reply" action="">
-            <input id="input_reply" type="text" placeholder="Post your reply">
+        <form id="form_reply"  method="POST" action="{{ route('commentaire.post') }}">
+            @csrf
+            <input type="hidden" name="user_id" value="{{ auth::id() }}">
+            <input type="hidden" name="post_id" value="{{ $id }}">
+            <input id="input_reply" type="text" placeholder="Post your reply" name="reply">
             <button class="button_reply" type="submit">Reply</button>
         </form>
     </div>
