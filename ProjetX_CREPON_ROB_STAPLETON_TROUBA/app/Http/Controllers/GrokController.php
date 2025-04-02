@@ -14,6 +14,9 @@ class GrokController extends Controller
 
     public function ask(Request $request)
     {
+        if (!auth()->check()) {
+            return redirect('/');
+        }
         $request->validate([
             'message' => 'required|string',
         ]);

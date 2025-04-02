@@ -82,6 +82,18 @@ class CompteController extends Controller
 
     public function compte($id)
     {
+        if (!auth()->check()) {
+            return redirect('/');
+        }
+        if (Auth::check()) {
+            // L'utilisateur est authentifié
+            $user = Auth::user(); // Récupère l'utilisateur authentifié
+            // Tu peux maintenant utiliser les informations de l'utilisateur, par exemple :
+            echo "Bienvenue, " . $user->logincompte;
+        } else {
+            // L'utilisateur n'est pas authentifié
+            echo "Veuillez vous connecter.";
+        }
         $likes = $this->getLikesOfUser($id);
         $compte = Compte::where('idcompte', $id)->with(['photo', 'followers','followedaccounts'])->first();
 
@@ -98,7 +110,14 @@ class CompteController extends Controller
 
         return view('compte')->with('compte', $compte)->with('feed', $feed)->with('likes', $likes)->with('photoProfil', $photoProfil)->with('whotofollow', $whoToFollow);
     }
-    public function feed($id){
+    public function feed(){
+
+        if (!auth()->check()) {
+            return redirect('/');
+        }
+
+        $id = Auth::id();
+
         $compteUser = Compte::where('idcompte', $id)->with('photo')->first();
 
 
@@ -124,6 +143,9 @@ class CompteController extends Controller
 
     public function explore($id, Request $request)
     {
+        if (!auth()->check()) {
+            return redirect('/');
+        }
         $query = $request->input('query'); // Récupère le texte de l'input
 
         // Récupère tous les posts
@@ -161,8 +183,11 @@ class CompteController extends Controller
 
         return view('explore')->with('compte', $compteUser)->with('feed', $sortedFeed)->with('whotofollow', $whoToFollow);
     }
-    
+
     public function post($id){
+        if (!auth()->check()) {
+            return redirect('/');
+        }
        $post = Vpost::where('idpost', $id)->first();
 
        if(Vcitation::where('idpostcitation', $id)->exists()){

@@ -52,7 +52,7 @@
         @foreach($whotofollow as $follow)
             <div class="div_follow">
                 <div class="left_follow">
-                    <img class="img_follow" src="https://pbs.twimg.com/profile_images/1695959673646551040/OJ9rAupv_x96.jpg" alt="">
+                    <img class="img_follow" src="{{ asset('img/pp/' . $follow->logincompte . '.jpg') }}" alt="">
                     <div class="div_nom_follow">
                         <p class="p_info p_nom_post">{{ $follow->pseudocompte}}</p>
                         <p class="p_info p_pseudo">@ {{ $follow->logincompte}}</p>
