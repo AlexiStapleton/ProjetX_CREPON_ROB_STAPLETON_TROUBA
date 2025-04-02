@@ -7,7 +7,7 @@
 @section('content')
 <div id="main_content">
     <div id="head_compte">
-        <svg id="svg_back_compte" viewBox="0 0 24 24" aria-hidden="true" style="color: rgb(239, 243, 244);"><g><path d="M7.414 13l5.043 5.04-1.414 1.42L3.586 12l7.457-7.46 1.414 1.42L7.414 11H21v2H7.414z"></path></g></svg>
+        <svg id="svg_back_compte" viewBox="0 0 24 24" aria-hidden="true" style="color: rgb(239, 243, 244);"><a href="{{route('feed.show')}}"><g><path d="M7.414 13l5.043 5.04-1.414 1.42L3.586 12l7.457-7.46 1.414 1.42L7.414 11H21v2H7.414z"></path></g></a></svg>
         <div>
             <p class="p_head_compte p_name_head">{{$compte->pseudocompte}}</p>
             <p class="p_head_compte" id="p_post_head">{{ $compte->posts->count() }} posts</p>
@@ -85,7 +85,7 @@
                 <div class="left_follow">
                     <img class="img_follow" src="{{ asset('img/pp/' . $follow->logincompte . '.jpg') }}" alt="">
                     <div class="div_nom_follow">
-                        <p class="p_info p_nom_post">{{ $follow->pseudocompte}}</p>
+                        <p class="p_info p_nom_post"><a href="{{route('compte.show', ['id'=>$follow->idcompte])}}">{{ $follow->pseudocompte}}</a></p>
                         <p class="p_info p_pseudo">@ {{ $follow->logincompte}}</p>
                     </div>
                 </div>

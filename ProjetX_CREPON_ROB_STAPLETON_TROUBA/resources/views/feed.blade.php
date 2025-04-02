@@ -13,7 +13,7 @@
         </div>
     </div>
     <div id="div_post">
-        <img class="img_profile img_post" src="https://pbs.twimg.com/profile_images/1695959673646551040/OJ9rAupv_x96.jpg" alt="">
+        <img class="img_profile img_post" src="{{asset('img/pp/' . Auth::user()->logincompte . '.jpg')}}" alt="">
 
 
         <form action="{{ route('posts.store')}}" id="div_input" method="POST">
@@ -54,7 +54,7 @@
                 <div class="left_follow">
                     <img class="img_follow" src="{{ asset('img/pp/' . $follow->logincompte . '.jpg') }}" alt="">
                     <div class="div_nom_follow">
-                        <p class="p_info p_nom_post">{{ $follow->pseudocompte}}</p>
+                        <p class="p_info p_nom_post"><a href="{{route('compte.show', ['id'=>$follow->idcompte])}}">{{ $follow->pseudocompte}}</a></p>
                         <p class="p_info p_pseudo">@ {{ $follow->logincompte}}</p>
                     </div>
                 </div>

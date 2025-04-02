@@ -13,11 +13,11 @@
                     <div id="text_marge">
                         <p class="p_text_post">{{ $element->textpost }}</p>
                         <div class="div_img_post">
-                            @foreach(explode(',', str_replace(['{', '}'], '', $element->photo_urls)) as $photos)
-
-                                <img src="{{ asset($photos) }}" alt="{{$photos}}">
-
-                            @endforeach
+                        @foreach(explode(',', str_replace(['{', '}'], '', $element->photo_urls)) as $photos)
+                            @if(!empty($photos) && stripos($photos, 'NULL') === false)
+                                <img src="{{ asset($photos) }}" alt="{{ $photos }}">
+                            @endif
+                        @endforeach
                         </div>
                     </div>
                     <div class="button_post">
@@ -157,8 +157,9 @@
                         <p class="p_text_post">{{ $element->textpost }}</p>
                         <div class="div_img_post">
                             @foreach(explode(',', str_replace(['{', '}'], '', $element->photo_urls)) as $photos)
-                                <img src="{{ asset($photos) }}" alt="">
-
+                                @if(!empty($photos) && stripos($photos, 'NULL') === false)
+                                    <img src="{{ asset($photos) }}" alt="{{ $photos }}">
+                                @endif
                             @endforeach
                         </div>
                     </div>
