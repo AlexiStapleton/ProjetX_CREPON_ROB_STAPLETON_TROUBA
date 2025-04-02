@@ -23,7 +23,7 @@ Avant de lancer le projet, assurez-vous d'avoir installé :
 L'application est accessible via l'URL : [http://localhost:12586](http://localhost:12586)
 
 ---
-## 💻 Fonctionnalité
+## 💻 Fonctionnalités
 
 🔑 Authentification et Profil
 - Se connecter
