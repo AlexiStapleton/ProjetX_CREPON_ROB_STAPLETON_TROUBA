@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="{{ asset('css/feed.css') }}">
     @yield('css')
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Document</title>
+    <title>X</title>
 </head>
 <body>
     <div class="container">
