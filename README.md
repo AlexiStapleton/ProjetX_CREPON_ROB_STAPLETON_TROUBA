@@ -28,12 +28,11 @@ L'application est accessible via l'URL : [http://localhost:12586](http://localho
 
 ```
 ProjetX/
-│── backend/         # Code du backend (Express, API...)
-│── frontend/        # Code du frontend (React, Vue...)
-│── database/        # Scripts SQL, migrations
+│── ressources/         # Code du projet
+│── init.sql            # Scripts SQL
 │── docker-compose.yml  # Configuration Docker
-│── package.json     # Fichier de configuration Node.js
-│── README.md        # Documentation du projet
+│── Dockerfile          # Configuration image Laravel
+│── README.md           # Documentation du projet
 ```
 
 ### 📌 Modélisation de la base de données
