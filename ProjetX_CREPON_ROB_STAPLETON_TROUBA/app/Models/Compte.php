@@ -42,4 +42,5 @@ class Compte extends Authenticatable
     public function getRt(){
         return $this->hasMany(Rt::class, 'idrtcompte', 'idcompte');
     }
+
 }

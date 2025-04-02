@@ -32,13 +32,19 @@
         <div class="but_compte">
             <svg class="svg_but_compte" viewBox="0 0 24 24" aria-hidden="true" style="color: rgb(239, 243, 244);"><g><path d="M1.998 5.5c0-1.381 1.119-2.5 2.5-2.5h15c1.381 0 2.5 1.119 2.5 2.5v13c0 1.381-1.119 2.5-2.5 2.5h-15c-1.381 0-2.5-1.119-2.5-2.5v-13zm2.5-.5c-.276 0-.5.224-.5.5v2.764l8 3.638 8-3.636V5.5c0-.276-.224-.5-.5-.5h-15zm15.5 5.463l-8 3.636-8-3.638V18.5c0 .276.224.5.5.5h15c.276 0 .5-.224.5-.5v-8.037z"></path></g></svg>
         </div>
-        <div id="but_follow">Follow</div>
+        @if(Auth::user()->idcompte != $compte->idcompte)
+            @if(true)
+
+            @endif
+        @else
+            <button class="but_follow">Edit my profile</button>
+        @endif
     </div>
 
     <div id="margin">
         <div id="info_name">
             <p class="p_head_compte p_name_head">{{$compte->pseudocompte}}</p>
-            <p class="p_head_compte p_pseudo">@.{{$compte->logincompte}}</p>
+            <p class="p_head_compte p_pseudo">{{'@'.$compte->logincompte}}</p>
         </div>
         <div id="bio">
             <p>{{$compte->descriptioncompte}}</p>
@@ -85,6 +91,14 @@
                 </div>
                 <button class="but_follow">Follow</button>
             </div>
+<<<<<<< HEAD
         @endforeach
     </div>
 @endsection
+=======
+
+            <button class="but_follow">Follow</button>
+        </div>
+    @endforeach
+@endsection
+>>>>>>> 6e091e0f817e0b38591f5f47b41a30bf8b46d636
