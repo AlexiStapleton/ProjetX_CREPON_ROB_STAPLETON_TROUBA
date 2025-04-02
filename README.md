@@ -38,7 +38,7 @@ ProjetX/
 
 ### 📌 Modélisation de la base de données
 
-![Schéma de la base de données](docs/modelisation.png)
+![Schéma de la base de données](modelisation.png)
 
 ---
 
