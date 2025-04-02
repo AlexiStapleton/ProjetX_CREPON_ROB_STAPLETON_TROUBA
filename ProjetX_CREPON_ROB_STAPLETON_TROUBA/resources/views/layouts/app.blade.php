@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('css/feed.css') }}">
     @yield('css')
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Document</title>
 </head>
 <body>
     <div class="container">
         <div id="left_side">
             <ul id="ul_cat">
-                <li class="li_cat hov_but" style="font-size: 250%;"><a href="{{ route('feed.show', ['id' => Auth::user()->idcompte]) }}">&Xopf;</a></li>
+
                 <li class="li_cat hov_but" style="font-size: 250%;"><a href="{{ route('feed.show', ['id' => Auth::user()->idcompte]) }}">&Xopf;</a></li>
                 <li class="li_cat hov_but">
                     <svg viewBox="0 0 24 24" aria-hidden="true"><g><path d="M21.591 7.146L12.52 1.157c-.316-.21-.724-.21-1.04 0l-9.071 5.99c-.26.173-.409.456-.409.757v13.183c0 .502.418.913.929.913H9.14c.51 0 .929-.41.929-.913v-7.075h3.909v7.075c0 .502.417.913.928.913h6.165c.511 0 .929-.41.929-.913V7.904c0-.301-.158-.584-.408-.758z"></path></g></svg>
@@ -79,7 +80,7 @@
         @yield('content')
 
         <div id="right_side">
-            
+
                 @yield('right_side')
             </div>
         </div>

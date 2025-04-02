@@ -91,14 +91,6 @@
                 </div>
                 <button class="but_follow">Follow</button>
             </div>
-<<<<<<< HEAD
         @endforeach
     </div>
 @endsection
-=======
-
-            <button class="but_follow">Follow</button>
-        </div>
-    @endforeach
-@endsection
->>>>>>> 6e091e0f817e0b38591f5f47b41a30bf8b46d636

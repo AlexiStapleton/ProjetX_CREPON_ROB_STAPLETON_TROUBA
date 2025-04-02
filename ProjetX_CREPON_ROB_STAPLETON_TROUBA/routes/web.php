@@ -23,7 +23,7 @@ Route::get("/posts", [PostController::class, 'posts'])->name('post.showall');
 Route::post("/posts", [PostController::class, 'store'])->name('posts.store');
 
 Route::post("/rt/toggle", [RTController::class, 'toggleRt'])->name('rt.toggle');
-Route::post("/like/toggle", [AimeController::class, 'toggleLike'])->name('like.toggle');
+Route::post("/like/toggle", [AimeController::class, 'toggle'])->name('like.toggle');
 
 //Route::get("/connexion", 'ConnexionController@formulaire');
 Route::post("/connexion", [ConnexionController::class, 'traitement'])->name('connexion.traitement');
