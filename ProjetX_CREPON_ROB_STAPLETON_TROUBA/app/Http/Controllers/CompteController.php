@@ -41,9 +41,9 @@ class CompteController extends Controller
         return $sortedFeed;
     }
 
-    public function whoToFollow($id){
-        $followedAccound = Follow::where('idcomptequifollow', $id)->pluck('idcomptefollow');
-        $followedAccound = $followedAccound->push(intval($id));
+    public function whoToFollow(){
+        $followedAccound = Follow::where('idcomptequifollow', Auth::id())->pluck('idcomptefollow');
+        $followedAccound = $followedAccound->push(intval(Auth::id()));
 
         $accountToFollow = Compte::whereNotIn('idcompte', $followedAccound)->get();
 
@@ -196,7 +196,7 @@ class CompteController extends Controller
        $feed = collect();
        $feed = $feed->push($post);
 
-        $whoToFollow = $this->whoToFollow($id);
+        $whoToFollow = $this->whoToFollow();
 
         $commentairesId = Commentaire::where('idpostoriginalcommentaire', $id)->pluck('idpostcommentaire');
         $commentaires = collect();
