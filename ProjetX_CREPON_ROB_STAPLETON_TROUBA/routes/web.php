@@ -32,3 +32,6 @@ Route::post("/signup", [ConnexionController::class, 'signup'])->name('signup');
 
 Route::get('/grok', [GrokController::class, 'index'])->name('grok');
 Route::post('/grok', [GrokController::class, 'ask']);
+
+//Route d'un post
+Route::get('/post/{id}', [CompteController::class, 'post'])->name('post');
