@@ -13,7 +13,7 @@ Route::get('/', function () {
     return view('connexion');
 })->name('connexion');
 Route::get("/compte/{id}", [CompteController::class, 'compte'])->name('compte.show');
-Route::get("/feed/{id}", [CompteController::class, 'feed'])->name('feed.show');
+Route::get("/feed", [CompteController::class, 'feed'])->name('feed.show');
 Route::get('/explore/{id}', [CompteController::class, 'explore'])->name('explore');
 
 // Route::get("/post/{id}", [PostController::class, 'post'])->name('post.show');

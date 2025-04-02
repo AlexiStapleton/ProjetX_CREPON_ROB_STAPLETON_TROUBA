@@ -3,7 +3,7 @@
         @if($element instanceof App\Models\Vpost)
             <div class="content_post">
                 <div class="div_image">
-                    <img class="img_profile img_post" src="https://pbs.twimg.com/profile_images/1695959673646551040/OJ9rAupv_x96.jpg" alt="">
+                    <img class="img_profile img_post" src="{{ asset('img/pp/' . $element->logincompte . '.jpg') }}" alt="">
                 </div>
                 <div class="div_feed_post">
                     <div class="header_feed_post">
@@ -110,7 +110,7 @@
         @if($element instanceof App\Models\Vcitation)
             <div class="content_post">
                 <div class="div_image">
-                    <img class="img_profile img_post" src="https://pbs.twimg.com/profile_images/1695959673646551040/OJ9rAupv_x96.jpg" alt="">
+                    <img class="img_profile img_post" src="{{ asset('img/pp/' . $element->loginposter . '.jpg') }}" alt="">
                 </div>
                 <div class="div_feed_post">
                     <div class="header_feed_post">
@@ -232,7 +232,7 @@
             </div>
             <div class="content_post content_post_rt">
                 <div class="div_image">
-                    <img class="img_profile img_post" src="https://pbs.twimg.com/profile_images/1695959673646551040/OJ9rAupv_x96.jpg" alt="">
+                    <img class="img_profile img_post" src="{{ asset('img/pp/' . $element->logincompte . '.jpg') }}" alt="">
                 </div>
                 <div class="div_feed_post">
                     <div class="header_feed_post">
