@@ -97,10 +97,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 const data = await response.json();
 
-                // 5. Mise à jour de l'interface
                 if (data.success) {
-                    // Solution robuste pour la mise à jour du compteur
-                    const baseEmoji = '👍'; // Ou extraire du texte existant
                     button.textContent = `${baseEmoji} ${data.likes_count}`;
                     button.classList.toggle('liked', data.liked);
                 }
@@ -115,6 +112,84 @@ document.addEventListener('DOMContentLoaded', function() {
                 // 6. Réactiver le bouton dans tous les cas
                 button.disabled = false;
             }
+        });
+    });
+});
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const rtButtons = document.querySelectorAll('.but_rt');
+
+    if (rtButtons.length === 0) {
+        console.warn('Aucun bouton avec la classe "rt_like" trouvé');
+        return;
+    }
+
+    rtButtons.forEach(button => {
+        if (button.hasAttribute('data-listener-attached')) {
+            return;
+        }
+
+        button.setAttribute('data-listener-attached', 'true');
+
+        button.addEventListener('click', async function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            const postId = button.dataset.postId;
+            const userId = button.dataset.userId
+
+            const nbrt = document.getElementById('nb_rt_' + postId + '_' + userId)
+            console.log(button, postId, userId, nbrt.textContent);
+
+
+            try{
+                button.disabled = true;
+
+                if(!postId || !userId){
+                    throw new Error('ID manquant');
+                }
+                console.log('appel')
+                const response = await fetch('/rt/toggle',{
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
+                        'Accept': 'application/json'
+                        },
+                    body: JSON.stringify({
+                        post_id: postId,
+                        user_id: userId
+                    })
+                })
+
+                if (!response.ok) {
+                    const errorData = await response.json().catch(() => ({}));
+                    throw new Error(errorData.message || 'Erreur serveur');
+                }
+
+
+                const data = await response.json();
+                if (data.success) {
+                    console.log(data.test)
+                    console.log('succes')
+                    nbrt.textContent = `${data.rt_count}`;
+                    button.classList.toggle('liked', data.liked);
+                }
+
+
+
+            }catch(error){
+                console.error('Erreur:', error);
+                const originalText = button.textContent;
+                button.textContent = 'Erreur';
+                setTimeout(() => { button.textContent = originalText; }, 2000);
+            } finally {
+
+                button.disabled = false;
+            }
+
         });
     });
 });
