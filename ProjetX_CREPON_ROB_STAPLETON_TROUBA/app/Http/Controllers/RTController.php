@@ -10,23 +10,49 @@ use Illuminate\Http\Request;
 
 class RTController extends Controller
 {
-    public function toggleRt(Request $request){
-        $idcompte = $request->input('user_id');
-        $idpost = $request->input('post_id');
-
-        $check = Rt::where('idrtcompte', $idcompte)
-                ->where('idrtpost', $idpost)
-                ->first();
-
-        if($check){
-            $check->delete();
-        }else{
-            RT::create([
-                'datert' => now()->format('d-m-y'),
-                'idrtcompte' => $idcompte,
-                'idrtpost' => $idpost,
+    public function toggle(Request $request){
+        try{
+            $validated = $request->validate([
+                'post_id' => 'required|integer',
+                'user_id' => 'required|integer'
             ]);
+
+            $rt = Rt::where([
+                'idrtcompte' => $validated['user_id'],
+                'idrtpost' => $validated['post_id']
+            ])->first();
+
+
+            if($rt){
+                $rt->delete();
+                $liked = false;
+
+            }else{
+                Rt::create([
+                    'idrtcompte' => $validated['user_id'],
+                    'idrtpost' => $validated['post_id'],
+                    'datert' => date('d-m-Y')
+                ]);
+                $liked = true;
+            }
+
+            $rtcount = Rt::where(['idrtcompte' => $validated['user_id'], 'idrtpost' => $validated['post_id']])->count();
+
+
+            return response()->json([
+                'success' => true,
+                'liked' => $liked,
+                'rt_count' => $rtcount
+            ], 200);
+
+        }catch (\Exception $e) {
+
+            return response()->json([
+                'success' => false,
+                'error' => $e->getMessage(),
+                'file' => $e->getFile(),
+                'line' => $e->getLine()
+            ], 500);
         }
-        return back();
     }
 }

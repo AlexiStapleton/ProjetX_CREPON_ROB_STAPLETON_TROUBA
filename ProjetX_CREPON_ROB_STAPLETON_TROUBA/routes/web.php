@@ -16,13 +16,13 @@ Route::get("/compte/{id}", [CompteController::class, 'compte'])->name('compte.sh
 Route::get("/feed/{id}", [CompteController::class, 'feed'])->name('feed.show');
 Route::get('/explore/{id}', [CompteController::class, 'explore'])->name('explore');
 
-Route::get("/post/{id}", [PostController::class, 'post'])->name('post.show');
+// Route::get("/post/{id}", [PostController::class, 'post'])->name('post.show');
 
-Route::get("/posts", [PostController::class, 'posts'])->name('post.showall');
+// Route::get("/posts", [PostController::class, 'posts'])->name('post.showall');
 
 Route::post("/posts", [PostController::class, 'store'])->name('posts.store');
 
-Route::post("/rt/toggle", [RTController::class, 'toggleRt'])->name('rt.toggle');
+Route::post("/rt/toggle", [RTController::class, 'toggle'])->name('rt.toggle');
 Route::post("/like/toggle", [AimeController::class, 'toggle'])->name('like.toggle');
 
 //Route::get("/connexion", 'ConnexionController@formulaire');

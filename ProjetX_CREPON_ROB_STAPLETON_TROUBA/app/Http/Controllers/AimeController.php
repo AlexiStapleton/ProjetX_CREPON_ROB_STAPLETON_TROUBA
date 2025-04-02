@@ -10,11 +10,7 @@ class AimeController extends Controller
 {
     public function toggle(Request $request)
     {
-        // Log at the very beginning to see if we reach this point
-        Log::info('AimeController toggle method reached', ['request' => $request->all()]);
-
         try {
-            // Validate with the correct field names
             $validated = $request->validate([
                 'post_id' => 'required|integer',
                 'user_id' => 'required|integer'
@@ -48,9 +44,6 @@ class AimeController extends Controller
             ], 200);
 
         } catch (\Exception $e) {
-            // Log the error
-            Log::error('AimeController toggle error: ' . $e->getMessage());
-            Log::error($e->getTraceAsString());
 
             return response()->json([
                 'success' => false,

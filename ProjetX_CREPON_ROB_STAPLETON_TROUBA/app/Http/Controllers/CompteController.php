@@ -170,22 +170,26 @@ class CompteController extends Controller
 
         return view('explore')->with('compte', $compteUser)->with('feed', $sortedFeed)->with('whotofollow', $whoToFollow);
     }
+    
     public function post($id){
-        $post = Vpost::where('idpost', $id)->first();
-        $commentairesId = Commentaire::where('idpostoriginalcommentaire', $id)->get();
+       $post = Vpost::where('idpost', $id)->first();
 
-        $commentaires = collect();
-
-        foreach ($commentairesId as $commentaire) {
-            $commentaires->push(Vpost::where('idpost', $commentaire->idpostcommentaire)->first());
-        }
-
-
+       if(Vcitation::where('idpostcitation', $id)->exists()){
+           $post = Vcitation::where('idpostcitation', $id)->first();
+       }
+       $feed = collect();
+       $feed = $feed->push($post);
 
         $whoToFollow = $this->whoToFollow($id);
 
-        return view('post')->with('post', $post)->with('commentaires', $commentaires)->with('whotofollow', $whoToFollow);
+        $commentairesId = Commentaire::where('idpostoriginalcommentaire', $id)->pluck('idpostcommentaire');
+        $commentaires = collect();
 
+        foreach($commentairesId as $commentaire){
+            $commentaires->push(Vpost::where('idpost',$commentaire )->first());
+        }
 
+        return view('post')->with('post', $feed)->with('whotofollow', $whoToFollow)->with('commentaires', $commentaires);
     }
+
 }

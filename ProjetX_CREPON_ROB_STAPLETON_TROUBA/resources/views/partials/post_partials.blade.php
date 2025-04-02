@@ -31,11 +31,10 @@
                                 <div class="div_rt">
                                     <form class="div_rep" action="{{ route('rt.toggle') }}" method="POST">
                                         @csrf
-                                        <input type="hidden" name="user_id" value="{{ $compte->idcompte }}">
+                                        <input type="hidden" name="user_id" value="{{ Auth::user()->idcompte }}">
                                         <input type="hidden" name="post_id" value="{{ $element->idpost }}">
                                         <svg viewBox="0 0 24 24" aria-hidden="true"><g><path d="M4.5 3.88l4.432 4.14-1.364 1.46L5.5 7.55V16c0 1.1.896 2 2 2H13v2H7.5c-2.209 0-4-1.79-4-4V7.55L1.432 9.48.068 8.02 4.5 3.88zM16.5 6H11V4h5.5c2.209 0 4 1.79 4 4v8.45l2.068-1.93 1.364 1.46-4.432 4.14-4.432-4.14 1.364-1.46 2.068 1.93V8c0-1.1-.896-2-2-2z"></path></g></svg>
-                                        <button type="submit">Repost</button>
-                                    </form>
+                                        <button type="submit" class="but_rt" data-post-id="{{ $element->idpost }}" data-user-id="{{ $compte->idcompte }}">Repost</button>
 
                                     <div class="div_rep quote">
                                         <svg viewBox="0 0 24 24" aria-hidden="true"><g><path d="M14.23 2.854c.98-.977 2.56-.977 3.54 0l3.38 3.378c.97.977.97 2.559 0 3.536L9.91 21H3v-6.914L14.23 2.854zm2.12 1.414c-.19-.195-.51-.195-.7 0L5 14.914V19h4.09L19.73 8.354c.2-.196.2-.512 0-.708l-3.38-3.378zM14.75 19l-2 2H21v-2h-6.25z"></path></g></svg>
@@ -44,13 +43,11 @@
                                 </div>
 
                                 <svg class="svg_but_post" viewBox="0 0 24 24" aria-hidden="true"><g><path d="M4.5 3.88l4.432 4.14-1.364 1.46L5.5 7.55V16c0 1.1.896 2 2 2H13v2H7.5c-2.209 0-4-1.79-4-4V7.55L1.432 9.48.068 8.02 4.5 3.88zM16.5 6H11V4h5.5c2.209 0 4 1.79 4 4v8.45l2.068-1.93 1.364 1.46-4.432 4.14-4.432-4.14 1.364-1.46 2.068 1.93V8c0-1.1-.896-2-2-2z"></path></g></svg>
-                                <p class="p_info_but">{{ $element->nb_rts }}</p>
+                                <p class="p_info_but" id="nb_rt_{{ $element->idpost }}_{{ $compte->idcompte }}">{{ $element->nb_rts }}</p>
                             </li>
-                            <li class="li_but_post hov_red">
-
-                                    <svg class="svg_but_post" viewBox="0 0 24 24" aria-hidden="true"><g><path d="M16.697 5.5c-1.222-.06-2.679.51-3.89 2.16l-.805 1.09-.806-1.09C9.984 6.01 8.526 5.44 7.304 5.5c-1.243.07-2.349.78-2.91 1.91-.552 1.12-.633 2.78.479 4.82 1.074 1.97 3.257 4.27 7.129 6.61 3.87-2.34 6.052-4.64 7.126-6.61 1.111-2.04 1.03-3.7.477-4.82-.561-1.13-1.666-1.84-2.908-1.91zm4.187 7.69c-1.351 2.48-4.001 5.12-8.379 7.67l-.503.3-.504-.3c-4.379-2.55-7.029-5.19-8.382-7.67-1.36-2.5-1.41-4.86-.514-6.67.887-1.79 2.647-2.91 4.601-3.01 1.651-.09 3.368.56 4.798 2.01 1.429-1.45 3.146-2.1 4.796-2.01 1.954.1 3.714 1.22 4.601 3.01.896 1.81.846 4.17-.514 6.67z"></path></g></svg>
-                                    <button type="submit" class="but_submit but_like" data-post-id="{{ $element->idpost }}" data-user-id="{{ $compte->idcompte }}">{{ $element->nblikes }}</button>
-
+                            <li class="li_but_post hov_red li_like">
+                                <svg class="svg_but_post" viewBox="0 0 24 24" aria-hidden="true"><g><path d="M16.697 5.5c-1.222-.06-2.679.51-3.89 2.16l-.805 1.09-.806-1.09C9.984 6.01 8.526 5.44 7.304 5.5c-1.243.07-2.349.78-2.91 1.91-.552 1.12-.633 2.78.479 4.82 1.074 1.97 3.257 4.27 7.129 6.61 3.87-2.34 6.052-4.64 7.126-6.61 1.111-2.04 1.03-3.7.477-4.82-.561-1.13-1.666-1.84-2.908-1.91zm4.187 7.69c-1.351 2.48-4.001 5.12-8.379 7.67l-.503.3-.504-.3c-4.379-2.55-7.029-5.19-8.382-7.67-1.36-2.5-1.41-4.86-.514-6.67.887-1.79 2.647-2.91 4.601-3.01 1.651-.09 3.368.56 4.798 2.01 1.429-1.45 3.146-2.1 4.796-2.01 1.954.1 3.714 1.22 4.601 3.01.896 1.81.846 4.17-.514 6.67z"></path></g></svg>
+                                <p class="p_info_but but_like" data-post-id="{{ $element->idpost }}" data-user-id="{{ Auth::user()->idcompte }}">{{ $element->nblikes }}</p>
                             </li>
                             <li class="li_but_post hov_blue">
                                 <form class="form_but_post" action="">
@@ -84,7 +81,7 @@
                                 </div>
                             </div>
                             <input id="imageInput" type="file" name="images[]" accept="image/*">
-                            <input type="hidden" name="user_id" value="{{ $compte->idcompte }}">
+                            <input type="hidden" name="user_id" value="{{ Auth::user()->idcompte }}">
                             <div id="div_button">
                                 <ul id="ul_but_post">
                                     <li>
@@ -145,26 +142,25 @@
                             </li>
                             <li class="li_but_post hov_green li_rt">
                                 <div class="div_rt">
-                                    <form class="div_rep" action="{{ route('rt.toggle') }}" method="POST">
-                                        @csrf
+
                                         <svg viewBox="0 0 24 24" aria-hidden="true"><g><path d="M4.5 3.88l4.432 4.14-1.364 1.46L5.5 7.55V16c0 1.1.896 2 2 2H13v2H7.5c-2.209 0-4-1.79-4-4V7.55L1.432 9.48.068 8.02 4.5 3.88zM16.5 6H11V4h5.5c2.209 0 4 1.79 4 4v8.45l2.068-1.93 1.364 1.46-4.432 4.14-4.432-4.14 1.364-1.46 2.068 1.93V8c0-1.1-.896-2-2-2z"></path></g></svg>
-                                        <button type="submit">Repost</button>
-                                    </form>
+                                        <button type="submit" class="but_rt" data-post-id="{{ $element->idpostcitation }}" data-user-id="{{ $compte->idcompte }}">Repost</button>
+
 
                                     <div class="div_rep quote">
                                         <svg viewBox="0 0 24 24" aria-hidden="true"><g><path d="M14.23 2.854c.98-.977 2.56-.977 3.54 0l3.38 3.378c.97.977.97 2.559 0 3.536L9.91 21H3v-6.914L14.23 2.854zm2.12 1.414c-.19-.195-.51-.195-.7 0L5 14.914V19h4.09L19.73 8.354c.2-.196.2-.512 0-.708l-3.38-3.378zM14.75 19l-2 2H21v-2h-6.25z"></path></g></svg>
                                         <button>Quote</button>
                                     </div>
                                 </div>
-                                <input type="hidden" name="user_id" value="{{ $compte->idcompte }}">
+                                <input type="hidden" name="user_id" value="{{ Auth::user()->idcompte }}">
                                 <input type="hidden" name="post_id" value="{{ $element->idpost }}">
                                 <svg class="svg_but_post" viewBox="0 0 24 24" aria-hidden="true"><g><path d="M4.5 3.88l4.432 4.14-1.364 1.46L5.5 7.55V16c0 1.1.896 2 2 2H13v2H7.5c-2.209 0-4-1.79-4-4V7.55L1.432 9.48.068 8.02 4.5 3.88zM16.5 6H11V4h5.5c2.209 0 4 1.79 4 4v8.45l2.068-1.93 1.364 1.46-4.432 4.14-4.432-4.14 1.364-1.46 2.068 1.93V8c0-1.1-.896-2-2-2z"></path></g></svg>
-                                <p class="p_info_but">{{ $element->nb_rts }}</p>
+                                <p class="p_info_but" id="nb_rt_{{ $element->idpostcitation }}_{{ $compte->idcompte }}">{{ $element->nb_rts }}</p>
                             </li>
                             <li class="li_but_post hov_red">
 
                                 <svg class="svg_but_post" viewBox="0 0 24 24" aria-hidden="true"><g><path d="M16.697 5.5c-1.222-.06-2.679.51-3.89 2.16l-.805 1.09-.806-1.09C9.984 6.01 8.526 5.44 7.304 5.5c-1.243.07-2.349.78-2.91 1.91-.552 1.12-.633 2.78.479 4.82 1.074 1.97 3.257 4.27 7.129 6.61 3.87-2.34 6.052-4.64 7.126-6.61 1.111-2.04 1.03-3.7.477-4.82-.561-1.13-1.666-1.84-2.908-1.91zm4.187 7.69c-1.351 2.48-4.001 5.12-8.379 7.67l-.503.3-.504-.3c-4.379-2.55-7.029-5.19-8.382-7.67-1.36-2.5-1.41-4.86-.514-6.67.887-1.79 2.647-2.91 4.601-3.01 1.651-.09 3.368.56 4.798 2.01 1.429-1.45 3.146-2.1 4.796-2.01 1.954.1 3.714 1.22 4.601 3.01.896 1.81.846 4.17-.514 6.67z"></path></g></svg>
-                                <button type="submit" class="but_submit but_like" data-post-id="{{ $element->idpostcitation }}" data-user-id="{{ $compte->idcompte }}">{{ $element->nblikes }}</button>
+                                <button type="submit" class="but_submit but_like" data-post-id="{{ $element->idpostcitation }}" data-user-id="{{ Auth::user()->idcompte }}">{{ $element->nblikes }}</button>
 
                             </li>
                             <li class="li_but_post hov_blue">
@@ -199,7 +195,7 @@
                                 </div>
                             </div>
                             <input id="imageInput" type="file" name="images[]" accept="image/*">
-                            <input type="hidden" name="user_id" value="{{ $compte->idcompte }}">
+                            <input type="hidden" name="user_id" value="{{ Auth::user()->idcompte }}">
                             <div id="div_button">
                                 <ul id="ul_but_post">
                                     <li>
@@ -256,26 +252,26 @@
                             </li>
                             <li class="li_but_post hov_green li_rt">
                                 <div class="div_rt">
-                                    <form class="div_rep" action="{{ route('rt.toggle') }}" method="POST">
-                                        @csrf
+
                                         <svg viewBox="0 0 24 24" aria-hidden="true"><g><path d="M4.5 3.88l4.432 4.14-1.364 1.46L5.5 7.55V16c0 1.1.896 2 2 2H13v2H7.5c-2.209 0-4-1.79-4-4V7.55L1.432 9.48.068 8.02 4.5 3.88zM16.5 6H11V4h5.5c2.209 0 4 1.79 4 4v8.45l2.068-1.93 1.364 1.46-4.432 4.14-4.432-4.14 1.364-1.46 2.068 1.93V8c0-1.1-.896-2-2-2z"></path></g></svg>
-                                        <button type="submit">Repost</button>
-                                    </form>
+                                        <button type="submit" class="but_rt" data-post-id="{{ $element->idrtpost }}" data-user-id="{{ $compte->idcompte }}">Repost</button>
+
+
 
                                     <div class="div_rep quote">
                                         <svg viewBox="0 0 24 24" aria-hidden="true"><g><path d="M14.23 2.854c.98-.977 2.56-.977 3.54 0l3.38 3.378c.97.977.97 2.559 0 3.536L9.91 21H3v-6.914L14.23 2.854zm2.12 1.414c-.19-.195-.51-.195-.7 0L5 14.914V19h4.09L19.73 8.354c.2-.196.2-.512 0-.708l-3.38-3.378zM14.75 19l-2 2H21v-2h-6.25z"></path></g></svg>
                                         <button>Quote</button>
                                     </div>
                                 </div>
-                                <input type="hidden" name="user_id" value="{{ $compte->idcompte }}">
+                                <input type="hidden" name="user_id" value="{{ Auth::user()->idcompte }}">
                                 <input type="hidden" name="post_id" value="{{ $element->idpost }}">
                                 <svg class="svg_but_post" viewBox="0 0 24 24" aria-hidden="true"><g><path d="M4.5 3.88l4.432 4.14-1.364 1.46L5.5 7.55V16c0 1.1.896 2 2 2H13v2H7.5c-2.209 0-4-1.79-4-4V7.55L1.432 9.48.068 8.02 4.5 3.88zM16.5 6H11V4h5.5c2.209 0 4 1.79 4 4v8.45l2.068-1.93 1.364 1.46-4.432 4.14-4.432-4.14 1.364-1.46 2.068 1.93V8c0-1.1-.896-2-2-2z"></path></g></svg>
-                                <p class="p_info_but">{{ $element->nbrt }}</p>
+                                <p class="p_info_but" id="nb_rt_{{ $element->idrtpost }}_{{ $compte->idcompte }}">{{ $element->nb_rts }}</p>
                             </li>
                             <li class="li_but_post hov_red">
 
                                     <svg class="svg_but_post" viewBox="0 0 24 24" aria-hidden="true"><g><path d="M16.697 5.5c-1.222-.06-2.679.51-3.89 2.16l-.805 1.09-.806-1.09C9.984 6.01 8.526 5.44 7.304 5.5c-1.243.07-2.349.78-2.91 1.91-.552 1.12-.633 2.78.479 4.82 1.074 1.97 3.257 4.27 7.129 6.61 3.87-2.34 6.052-4.64 7.126-6.61 1.111-2.04 1.03-3.7.477-4.82-.561-1.13-1.666-1.84-2.908-1.91zm4.187 7.69c-1.351 2.48-4.001 5.12-8.379 7.67l-.503.3-.504-.3c-4.379-2.55-7.029-5.19-8.382-7.67-1.36-2.5-1.41-4.86-.514-6.67.887-1.79 2.647-2.91 4.601-3.01 1.651-.09 3.368.56 4.798 2.01 1.429-1.45 3.146-2.1 4.796-2.01 1.954.1 3.714 1.22 4.601 3.01.896 1.81.846 4.17-.514 6.67z"></path></g></svg>
-                                    <button type="submit" class="but_submit but_like" data-post-id="{{ $element->idrtpost }}" data-user-id="{{ $compte->idcompte }}">{{ $element->nblikes }}</button>
+                                    <button type="submit" class="but_submit but_like" data-post-id="{{ $element->idrtpost }}" data-user-id="{{ Auth::user()->idcompte }}">{{ $element->nblikes }}</button>
 
                             </li>
                             <li class="li_but_post hov_blue">
@@ -310,7 +306,7 @@
                                 </div>
                             </div>
                             <input id="imageInput" type="file" name="images[]" accept="image/*">
-                            <input type="hidden" name="user_id" value="{{ $compte->idcompte }}">
+                            <input type="hidden" name="user_id" value="{{ Auth::user()->idcompte }}">
                             <div id="div_button">
                                 <ul id="ul_but_post">
                                     <li>
