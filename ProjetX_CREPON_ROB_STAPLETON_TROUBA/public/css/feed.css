@@ -97,6 +97,7 @@ svg{
 
 #div_compte{
     height: 5%;
+    max-width: 16vw;
     padding: 1% 4% 1% 2%;
     border-radius: 50px;
 
@@ -115,7 +116,8 @@ svg{
 }
 
 .img_profile{
-    height: 100%;
+    height: 40px;
+    width: 40px;
     margin-left: 2%;
     border-radius: 50px;
     aspect-ratio: 1;
@@ -136,6 +138,7 @@ svg{
 }
 
 .p_pseudo{
+    white-space: nowrap;
     font-size: 90%;
     color: rgba(163, 163, 163, 0.688) !important;
 }
@@ -705,7 +708,7 @@ svg{
 .div_nom_follow{
     margin-left: 10%;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: flex-start;
     flex-direction: column;
     gap: 2%;   

@@ -64,7 +64,7 @@
                 <a style="height:100%;" href="{{ route('compte.show', ['id' => Auth::user()->idcompte]) }}">
                 <a style="height:100%; width: 100%; display:flex; align-items: center; justify-content: space-between;" href="{{ route('compte.show', ['id' => Auth::user()->idcompte]) }}">
                     <div id="info_compte">
-                        <img class="img_profile" src="https://pbs.twimg.com/profile_images/1695959673646551040/OJ9rAupv_x96.jpg" alt="">
+                        <img class="img_profile" src="{{asset('img/pp/' . Auth::user()->logincompte . '.jpg')}}" alt="">
                         <div id="div_nom">
                             <p class="p_info">{{Auth::user()->pseudocompte}}</p>
                             <p class="p_info p_pseudo">@ {{Auth::user()->logincompte}}</p>
