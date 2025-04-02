@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="{{ asset('css/feed.css') }}">
     @yield('css')
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Document</title>
+    <title>X</title>
 </head>
 <body>
     <div class="container">
@@ -62,7 +62,7 @@
             </ul>
             <div class="hov_but" id="div_compte">
                 <a style="height:100%;" href="{{ route('compte.show', ['id' => Auth::user()->idcompte]) }}">
-                <a style="height:100%;" href="{{ route('compte.show', ['id' => Auth::user()->idcompte]) }}">
+                <a style="height:100%; width: 100%; display:flex; align-items: center; justify-content: space-between;" href="{{ route('compte.show', ['id' => Auth::user()->idcompte]) }}">
                     <div id="info_compte">
                         <img class="img_profile" src="https://pbs.twimg.com/profile_images/1695959673646551040/OJ9rAupv_x96.jpg" alt="">
                         <div id="div_nom">

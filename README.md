@@ -23,6 +23,27 @@ Avant de lancer le projet, assurez-vous d'avoir installé :
 L'application est accessible via l'URL : [http://localhost:12586](http://localhost:12586)
 
 ---
+## 💻 Fonctionnalités
+
+🔑 Authentification et Profil
+- Se connecter
+- Voir son compte
+
+📢 Interaction avec le Feed
+- Accès au feed des publications
+- Voir les posts, citations, retweets et commentaires des personnes suivies
+
+✍️ Publication et Engagement
+- Poster un message
+- Retweeter un message
+- Citer un message
+- Commenter un message
+- Liker un message
+- Cliquer sur un post ou une citation pour voir plus de détails
+- Voir le compte d'un utilisateur
+
+🤖 Interaction avec Grok
+- Envoyer des messages et interagir avec Grok
 
 ## 🛠 Structure et Organisation du Projet
 
