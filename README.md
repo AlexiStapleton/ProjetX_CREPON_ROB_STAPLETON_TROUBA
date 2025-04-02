@@ -49,7 +49,7 @@ L'application est accessible via l'URL : [http://localhost:12586](http://localho
 
 ```
 ProjetX/
-│── ressources/         # Code du projet
+│── ProjetX_CREPON_ROB_STAPLETON_TROUBA/         # Code du projet
 │── init.sql            # Scripts SQL
 │── docker-compose.yml  # Configuration Docker
 │── Dockerfile          # Configuration image Laravel
