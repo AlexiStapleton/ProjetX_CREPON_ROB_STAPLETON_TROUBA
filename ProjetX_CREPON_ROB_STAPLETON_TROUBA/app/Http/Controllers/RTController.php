@@ -22,12 +22,11 @@ class RTController extends Controller
                 'idrtpost' => $validated['post_id']
             ])->first();
 
-            $test = '';
 
             if($rt){
                 $rt->delete();
                 $liked = false;
-                $test = 'delete';
+
             }else{
                 Rt::create([
                     'idrtcompte' => $validated['user_id'],
@@ -35,7 +34,6 @@ class RTController extends Controller
                     'datert' => date('d-m-Y')
                 ]);
                 $liked = true;
-                $test = 'add';
             }
 
             $rtcount = Rt::where(['idrtcompte' => $validated['user_id'], 'idrtpost' => $validated['post_id']])->count();
@@ -43,7 +41,6 @@ class RTController extends Controller
 
             return response()->json([
                 'success' => true,
-                'test' => $test,
                 'liked' => $liked,
                 'rt_count' => $rtcount
             ], 200);

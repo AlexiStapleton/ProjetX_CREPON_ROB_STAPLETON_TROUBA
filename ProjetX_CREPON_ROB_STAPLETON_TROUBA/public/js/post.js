@@ -141,7 +141,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const userId = button.dataset.userId
 
             const nbrt = document.getElementById('nb_rt_' + postId + '_' + userId)
-            console.log(button, postId, userId, nbrt.textContent);
 
 
             try{
@@ -150,7 +149,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if(!postId || !userId){
                     throw new Error('ID manquant');
                 }
-                console.log('appel')
+
                 const response = await fetch('/rt/toggle',{
                     method: 'POST',
                     headers: {
@@ -172,8 +171,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 const data = await response.json();
                 if (data.success) {
-                    console.log(data.test)
-                    console.log('succes')
                     nbrt.textContent = `${data.rt_count}`;
                     button.classList.toggle('liked', data.liked);
                 }
