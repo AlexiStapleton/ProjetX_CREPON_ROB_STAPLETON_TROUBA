@@ -267,3 +267,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+
+document.querySelectorAll('.div_feed_post.click_post').forEach(div => {
+    div.addEventListener('click', function(event) {
+        if (event.target === event.currentTarget) {
+            const postId = this.getAttribute('idpost');
+            window.location.href = `/post/${postId}`;
+        }
+    });
+});
