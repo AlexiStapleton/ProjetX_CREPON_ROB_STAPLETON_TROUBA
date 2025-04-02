@@ -15,6 +15,7 @@ use App\Models\Vcitation;
 use App\Models\Vrt;
 use Carbon\Carbon;
 use App\Models\Follow;
+use Illuminate\Support\Facades\Auth;
 
 class CompteController extends Controller
 {
@@ -81,6 +82,15 @@ class CompteController extends Controller
 
     public function compte($id)
     {
+        if (Auth::check()) {
+            // L'utilisateur est authentifié
+            $user = Auth::user(); // Récupère l'utilisateur authentifié
+            // Tu peux maintenant utiliser les informations de l'utilisateur, par exemple :
+            echo "Bienvenue, " . $user->logincompte;
+        } else {
+            // L'utilisateur n'est pas authentifié
+            echo "Veuillez vous connecter.";
+        }
         $likes = $this->getLikesOfUser($id);
         $compte = Compte::where('idcompte', $id)->with(['photo', 'followers','followedaccounts'])->first();
 

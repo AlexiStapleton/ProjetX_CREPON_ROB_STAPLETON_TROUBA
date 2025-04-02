@@ -48,13 +48,7 @@
             <div id="info_connexion">
                 <h2 id="title_info_connexion">Connectez-vous à X</h2>
                 <input name="login" class="input_connexion" type="text" placeholder="Nom d'utilisateur">
-                @if($errors->has('login'))
-                    <p class="help is-danger">{{ $errors->first('login') }}</p>
-                @endif
                 <input name="password" class="input_connexion" type="password" placeholder="Mot de passe">
-                @if($errors->has('password'))
-                    <p class="help is-danger">{{ $errors->first('password') }}</p>
-                @endif
                 <button type="submit" class="button" id="b_suivant">Suivant</button>
                 <button class="button" id="b_mdp">Mot de passe oublié ?</button>
             </div>

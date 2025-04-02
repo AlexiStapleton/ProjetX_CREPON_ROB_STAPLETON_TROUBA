@@ -7,6 +7,7 @@ use App\Http\Controllers\CompteController;
 use App\Http\Controllers\RTController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AimeController;
+use App\Http\Controllers\GrokController;
 
 Route::get('/', function () {
     return view('connexion');
@@ -28,3 +29,6 @@ Route::post("/like/toggle", [AimeController::class, 'toggleLike'])->name('like.t
 Route::post("/connexion", [ConnexionController::class, 'traitement'])->name('connexion.traitement');
 
 Route::post("/signup", [ConnexionController::class, 'signup'])->name('signup');
+
+Route::get('/grok', [GrokController::class, 'index']);
+Route::post('/grok', [GrokController::class, 'ask']);
