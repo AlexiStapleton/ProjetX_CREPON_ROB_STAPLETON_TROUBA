@@ -16,7 +16,7 @@ Avant de lancer le projet, assurez-vous d'avoir installé :
 
 2. **Lancer les services Docker (base de données, backend, etc.)**
    ```sh
-   docker-compose up -d --build
+   docker-compose up -d
    ```
 
 ### Accès à l'application
