@@ -22,6 +22,13 @@ Avant de lancer le projet, assurez-vous d'avoir installé :
 ### Accès à l'application
 L'application est accessible via l'URL : [http://localhost:12586](http://localhost:12586)
 
+### Comptes de test
+1. login: bdiar / mdp: admin
+2. login: pytoka / mdp: admin
+3. login: isudus / mdp: admin
+4. login: bojodo / mdp: admin
+5. login: tkt / mdp: admin
+
 ---
 ## 💻 Fonctionnalités
 
